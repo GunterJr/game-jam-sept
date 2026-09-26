@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dc77ep4i1jpjv"]
 
-[ext_resource type="Script" uid="uid://cxv26wvih55bk" path="res://PachinkoBall.gd" id="1_41u45"]
+[ext_resource type="Script" uid="uid://cxv26wvih55bk" path="res://board/scripts/PachinkoBall.gd" id="1_41u45"]
 [ext_resource type="Texture2D" uid="uid://33n2kjhmvpnu" path="res://icon.svg" id="2_ktgx5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8l818"]

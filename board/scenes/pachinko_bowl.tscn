@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c3nxjqhl4goiw"]
 
 [ext_resource type="Texture2D" uid="uid://33n2kjhmvpnu" path="res://icon.svg" id="1_avtbx"]
-[ext_resource type="Script" uid="uid://wjccowlxq7fk" path="res://PachinkoBowl.gd" id="2_dy846"]
+[ext_resource type="Script" uid="uid://wjccowlxq7fk" path="res://board/scripts/PachinkoBowl.gd" id="2_dy846"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytma0"]
 size = Vector2(6, 3)
