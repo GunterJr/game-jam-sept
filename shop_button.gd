@@ -9,4 +9,5 @@ func _ready():
 		self.grab_focus()
 
 func _on_button_down() -> void:
-	ShopMaster.shop_button_pressed(item_name, cost)
+	if ShopMaster.time_to_shop == true:
+		ShopMaster.shop_button_pressed(item_name, cost)
