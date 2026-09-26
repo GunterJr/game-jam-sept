@@ -1,11 +1,22 @@
 [
 	{
+		"name":"MC",
 		"text":"hello"
 	},
 	{
-		"text":"this is a test!!!"
+		"name":"Broker",
+		"text":"buy my balls please"
 	},
 	{
-		"text":"my name is guy!"
+		"name":"MC",
+		"text":"how much"
+	},
+	{
+		"name":"Broker",
+		"text":"$1000000000"
+	},
+	{
+		"name":"MC",
+		"text":"no thanks"
 	}
 ]

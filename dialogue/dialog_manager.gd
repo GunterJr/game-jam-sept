@@ -14,8 +14,13 @@ extends Node
 var json_out: Array
 
 @onready var textbox: RichTextLabel = %Textbox
+@onready var panel: PanelContainer = $Panel
+@onready var char_name_box: Label = $Panel/MarginContainer/HBoxContainer/CharName
 
-## Parse a JSON file and call print_dialog on each dictionary
+func _ready() -> void:
+	load_dialog()
+
+## Parse a JSON file (convo) and call print_dialog on each dictionary
 func load_dialog() -> void:
 	var file := FileAccess.open(json_path, FileAccess.READ)
 	if file == null:
@@ -36,13 +41,15 @@ func load_dialog() -> void:
 		return
 
 	for dict: Dictionary in json_out:
-		await print_dialog(dict.get("text"))
+		await print_dialog(dict.get("text"), dict.get("name"))
 
 ## Animate the text onto the textbox and wait for user input
-func print_dialog(dialog: String) -> void:
+func print_dialog(dialog: String, char_name: String) -> void:
+	panel.visible = true
 
 	textbox.visible_characters = 0
 	textbox.text = dialog
+	char_name_box.text = char_name
 
 	for c in range(0, dialog.length()):
 		textbox.visible_characters += 1
@@ -51,3 +58,5 @@ func print_dialog(dialog: String) -> void:
 	# await get_tree().create_timer(line_wait_seconds).timeout
 	while !Input.is_action_just_pressed("ui_accept"):
 		await get_tree().process_frame
+
+	panel.visible = false
