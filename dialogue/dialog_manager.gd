@@ -4,6 +4,7 @@ class_name DialogManager
 extends Node
 
 @export_file_path var json_path: String
+@export var character_textures: Array[Texture2D]
 
 @export_category("Text Speeds")
 @export var char_wait_seconds: float = 0.1
@@ -14,6 +15,9 @@ var json_out: Array
 @onready var textbox: RichTextLabel = %Textbox
 @onready var panel: PanelContainer = $Panel
 @onready var char_name_box: Label = $Panel/MarginContainer/HBoxContainer/CharName
+@onready var portrait: TextureRect = $Portrait
+
+enum Characters {MC, BROKER, BUM}
 
 ## Parse a JSON file (convo) and call print_dialog on each dictionary
 func load_dialog() -> void:
@@ -38,13 +42,27 @@ func load_dialog() -> void:
 	for dict: Dictionary in json_out:
 		await print_dialog(dict.get("text"), dict.get("name"))
 
+	panel.visible = false
+	portrait.visible = false
+
 ## Animate the text onto the textbox and wait for user input
 func print_dialog(dialog: String, char_name: String) -> void:
 	panel.visible = true
+	portrait.visible = true
 
 	textbox.visible_characters = 0
 	textbox.text = dialog
 	char_name_box.text = char_name
+
+	assert(char_name == "MC" || char_name == "Broker" || char_name == "Bum")
+
+	if char_name == "MC":
+		portrait.texture = character_textures[Characters.MC]
+	elif char_name == "Broker":
+		portrait.texture = character_textures[Characters.BROKER]
+	elif char_name == "Bum":
+		portrait.texture = character_textures[Characters.BUM]
+
 
 	for c in range(0, dialog.length()):
 		textbox.visible_characters += 1
@@ -54,4 +72,6 @@ func print_dialog(dialog: String, char_name: String) -> void:
 	while !Input.is_action_just_pressed("ui_accept"):
 		await get_tree().process_frame
 
-	panel.visible = false
+# TODO: TTEMP
+func _ready() -> void:
+	load_dialog()

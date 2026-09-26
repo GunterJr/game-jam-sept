@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://dlt0broskok8l"]
 
 [ext_resource type="Script" uid="uid://ctxcwosjgp2rc" path="res://dialogue/dialog_manager.gd" id="1_tp7tx"]
+[ext_resource type="Texture2D" uid="uid://qou0j0kptqjq" path="res://dialogue/mc.png" id="2_r82r3"]
+[ext_resource type="Texture2D" uid="uid://c2ky43q66cfwo" path="res://dialogue/broker.png" id="3_ynsve"]
 
 [node name="DialogManager" type="Node" unique_id=1840127325]
 script = ExtResource("1_tp7tx")
 json_path = "res://dialogue/strings/test.json"
+character_textures = Array[Texture2D]([ExtResource("2_r82r3"), ExtResource("3_ynsve")])
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=920999922]
 visible = false
@@ -46,3 +49,17 @@ custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 text = "text"
 scroll_active = false
+
+[node name="Portrait" type="TextureRect" parent="." unique_id=1047568725]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -420.0
+offset_top = -640.0
+offset_right = -120.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_r82r3")
