@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://817ldsc8kdku"]
+
+[ext_resource type="Texture2D" uid="uid://qpo7qkl5gi86" path="res://board/sprites/ball-export.png" id="1_80p7u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdft7"]
+radius = 7.0
+
+[node name="Peg" type="StaticBody2D" unique_id=1757053329]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=754119163]
+shape = SubResource("CircleShape2D_qdft7")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1958293856]
+texture_filter = 1
+texture = ExtResource("1_80p7u")

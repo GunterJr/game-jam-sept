@@ -4,14 +4,19 @@
 [ext_resource type="Script" uid="uid://d31k642v7cab" path="res://board/scripts/BallDropper.gd" id="2_3hiem"]
 [ext_resource type="PackedScene" uid="uid://dc77ep4i1jpjv" path="res://board/scenes/ball.tscn" id="3_v174u"]
 [ext_resource type="Texture2D" uid="uid://33n2kjhmvpnu" path="res://icon.svg" id="4_1t3xs"]
+[ext_resource type="Texture2D" uid="uid://qpo7qkl5gi86" path="res://board/sprites/ball-export.png" id="4_v174u"]
 [ext_resource type="PackedScene" uid="uid://c3nxjqhl4goiw" path="res://board/scenes/pachinko_bowl.tscn" id="5_cy7ac"]
 [ext_resource type="Script" uid="uid://wjccowlxq7fk" path="res://board/scripts/PachinkoBowl.gd" id="6_v32la"]
+[ext_resource type="PackedScene" uid="uid://817ldsc8kdku" path="res://board/scenes/peg.tscn" id="6_v174u"]
+[ext_resource type="Texture2D" uid="uid://bl8jiejdlibr0" path="res://board/sprites/Sprite-0003.png" id="7_1t3xs"]
+[ext_resource type="Texture2D" uid="uid://b5npaex5fyhvb" path="res://board/sprites/arrow.png" id="10_bp0hc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdft7"]
 size = Vector2(31, 302)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qdft7"]
-radius = 7.0
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3hiem"]
+rough = true
+absorbent = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytma0"]
 size = Vector2(20, 3)
@@ -20,14 +25,14 @@ size = Vector2(20, 3)
 size = Vector2(102.36226, 3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rq8yp"]
-radius = 4.0
+radius = 12.0
 
 [node name="Board" type="Node2D" unique_id=997364691]
 
 [node name="CameraController" type="Node2D" parent="." unique_id=1456488899]
 script = ExtResource("1_cy7ac")
 moveSpeed = 200.0
-maxDistance = 150.0
+maxDistance = 80.0
 
 [node name="BallCount" type="Label" parent="CameraController" unique_id=1143465803]
 z_index = 10
@@ -35,6 +40,21 @@ offset_left = -112.0
 offset_top = -62.0
 offset_right = -72.0
 offset_bottom = -39.0
+
+[node name="UpArrow" type="Sprite2D" parent="CameraController" unique_id=1968491983]
+modulate = Color(1, 1, 1, 0.39215687)
+z_index = 2
+texture_filter = 1
+position = Vector2(121.5, -54.5)
+texture = ExtResource("10_bp0hc")
+
+[node name="DownArrow" type="Sprite2D" parent="CameraController" unique_id=156622]
+modulate = Color(1, 1, 1, 0.39215687)
+z_index = 2
+texture_filter = 1
+position = Vector2(122.5, 55.5)
+texture = ExtResource("10_bp0hc")
+flip_v = true
 
 [node name="Camera2D" type="Camera2D" parent="CameraController" unique_id=531195904]
 zoom = Vector2(5, 5)
@@ -47,18 +67,23 @@ dropHeight = -130.0
 pachinkoBall = ExtResource("3_v174u")
 pachinkoBallsCount = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="BallDropper" unique_id=365867069]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("4_1t3xs")
+[node name="Hole2" type="Sprite2D" parent="BallDropper" unique_id=1767099367]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(0, 2)
+texture = ExtResource("4_v174u")
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=547656392]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=265995599]
-position = Vector2(124, -5)
+position = Vector2(159, -5)
+rotation = 0.5235988
 shape = SubResource("RectangleShape2D_qdft7")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1103344943]
-position = Vector2(-124, -5)
+position = Vector2(-159, -5)
+rotation = -0.5235988
 shape = SubResource("RectangleShape2D_qdft7")
 
 [node name="Bowl" parent="." unique_id=283252032 instance=ExtResource("5_cy7ac")]
@@ -73,364 +98,155 @@ scoreAmount = 4
 position = Vector2(0, 39)
 scoreAmount = 8
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2074507176]
+[node name="Row1PegContainer" type="Node2D" parent="." unique_id=776917274]
+position = Vector2(0, -91)
+
+[node name="Peg" parent="Row1PegContainer" unique_id=1757053329 instance=ExtResource("6_v174u")]
 position = Vector2(16, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1754870365]
-position = Vector2(0, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg2" parent="Row1PegContainer" unique_id=1396914999 instance=ExtResource("6_v174u")]
+position = Vector2(46, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D" unique_id=588401449]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg3" parent="Row1PegContainer" unique_id=1045065371 instance=ExtResource("6_v174u")]
+position = Vector2(76, 0)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=94403851]
-position = Vector2(-30, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg4" parent="Row1PegContainer" unique_id=206024693 instance=ExtResource("6_v174u")]
+position = Vector2(-44, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D2" unique_id=1063940092]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg5" parent="Row1PegContainer" unique_id=115771351 instance=ExtResource("6_v174u")]
+position = Vector2(-74, 0)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1500157339]
-position = Vector2(-60, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg6" parent="Row1PegContainer" unique_id=719067714 instance=ExtResource("6_v174u")]
+position = Vector2(-14, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D3" unique_id=1106539191]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Row2PegContainer" type="Node2D" parent="." unique_id=1425274289]
+position = Vector2(0, -63)
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1879715389]
-position = Vector2(-90, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg" parent="Row2PegContainer" unique_id=813754800 instance=ExtResource("6_v174u")]
+position = Vector2(25, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D7" unique_id=1250766170]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg2" parent="Row2PegContainer" unique_id=700125387 instance=ExtResource("6_v174u")]
+position = Vector2(61, 5)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1832071680]
-position = Vector2(30, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg3" parent="Row2PegContainer" unique_id=960920027 instance=ExtResource("6_v174u")]
+position = Vector2(91, -6)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D4" unique_id=476697392]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg4" parent="Row2PegContainer" unique_id=457835816 instance=ExtResource("6_v174u")]
+position = Vector2(-59, 5)
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1172419027]
-position = Vector2(60, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg5" parent="Row2PegContainer" unique_id=1309539937 instance=ExtResource("6_v174u")]
+position = Vector2(-89, -6)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D5" unique_id=1187822264]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg6" parent="Row2PegContainer" unique_id=63501323 instance=ExtResource("6_v174u")]
+position = Vector2(-23, 0)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1870906109]
-position = Vector2(1, 25)
+[node name="Row3PegContainer" type="Node2D" parent="." unique_id=661687725]
+position = Vector2(0, -63)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=207824499]
-position = Vector2(-24, -88)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg" parent="Row3PegContainer" unique_id=234509518 instance=ExtResource("6_v174u")]
+position = Vector2(48, 22)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2/CollisionShape2D2" unique_id=410538393]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg2" parent="Row3PegContainer" unique_id=1258111073 instance=ExtResource("6_v174u")]
+position = Vector2(72, 17)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1466153695]
-position = Vector2(-60, -83)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg4" parent="Row3PegContainer" unique_id=627123308 instance=ExtResource("6_v174u")]
+position = Vector2(-46, 22)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2/CollisionShape2D3" unique_id=379006904]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg5" parent="Row3PegContainer" unique_id=1392307550 instance=ExtResource("6_v174u")]
+position = Vector2(-69, 19)
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1200291003]
-position = Vector2(-90, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg6" parent="Row3PegContainer" unique_id=582441703 instance=ExtResource("6_v174u")]
+position = Vector2(0, 28)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2/CollisionShape2D7" unique_id=1313321651]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Row4PegContainer" type="Node2D" parent="." unique_id=1399877627]
+position = Vector2(0, -63)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2" unique_id=700836500]
-position = Vector2(24, -88)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg" parent="Row4PegContainer" unique_id=472634229 instance=ExtResource("6_v174u")]
+position = Vector2(24, 47)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2/CollisionShape2D4" unique_id=1323709457]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg2" parent="Row4PegContainer" unique_id=177052909 instance=ExtResource("6_v174u")]
+position = Vector2(88, 47)
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1780430023]
-position = Vector2(60, -83)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg4" parent="Row4PegContainer" unique_id=714549521 instance=ExtResource("6_v174u")]
+position = Vector2(-24, 47)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2/CollisionShape2D5" unique_id=1825625363]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg5" parent="Row4PegContainer" unique_id=1380805194 instance=ExtResource("6_v174u")]
+position = Vector2(-88, 47)
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2005216703]
-position = Vector2(90, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Row5PegContainer" type="Node2D" parent="." unique_id=2002211965]
+position = Vector2(0, -63)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2/CollisionShape2D6" unique_id=1953019500]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg" parent="Row5PegContainer" unique_id=1690066945 instance=ExtResource("6_v174u")]
+position = Vector2(0, 70)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1294018697]
-position = Vector2(16, 50)
+[node name="Peg2" parent="Row5PegContainer" unique_id=489601306 instance=ExtResource("6_v174u")]
+position = Vector2(13, 79)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D3" unique_id=103029539]
-position = Vector2(-62, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg3" parent="Row5PegContainer" unique_id=770890239 instance=ExtResource("6_v174u")]
+position = Vector2(-13, 79)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3/CollisionShape2D3" unique_id=640406283]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg4" parent="Row5PegContainer" unique_id=1693469753 instance=ExtResource("6_v174u")]
+position = Vector2(-45, 75)
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1922673321]
-position = Vector2(-90, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg5" parent="Row5PegContainer" unique_id=1565520977 instance=ExtResource("6_v174u")]
+position = Vector2(-75, 72)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3/CollisionShape2D7" unique_id=1347064604]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg6" parent="Row5PegContainer" unique_id=1077437832 instance=ExtResource("6_v174u")]
+position = Vector2(-105, 72)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D3" unique_id=573120970]
-position = Vector2(32, -93)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg7" parent="Row5PegContainer" unique_id=2081926906 instance=ExtResource("6_v174u")]
+position = Vector2(45, 75)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3/CollisionShape2D4" unique_id=439637950]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg8" parent="Row5PegContainer" unique_id=111915510 instance=ExtResource("6_v174u")]
+position = Vector2(75, 72)
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1165568411]
-position = Vector2(61, -93)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg9" parent="Row5PegContainer" unique_id=497925215 instance=ExtResource("6_v174u")]
+position = Vector2(105, 72)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3/CollisionShape2D5" unique_id=1930861883]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Row6PegContainer" type="Node2D" parent="." unique_id=244936292]
+position = Vector2(0, -63)
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1167868752]
-position = Vector2(0, 75)
+[node name="Peg" parent="Row6PegContainer" unique_id=2123326063 instance=ExtResource("6_v174u")]
+position = Vector2(-28, 105)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1026614398]
-position = Vector2(0, -110)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg2" parent="Row6PegContainer" unique_id=84766832 instance=ExtResource("6_v174u")]
+position = Vector2(-57, 100)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4/CollisionShape2D" unique_id=574548440]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg3" parent="Row6PegContainer" unique_id=847795509 instance=ExtResource("6_v174u")]
+position = Vector2(-90, 97)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4" unique_id=2135002920]
-position = Vector2(-24, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg4" parent="Row6PegContainer" unique_id=642821762 instance=ExtResource("6_v174u")]
+position = Vector2(28, 104)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4/CollisionShape2D2" unique_id=2022645562]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg5" parent="Row6PegContainer" unique_id=714428767 instance=ExtResource("6_v174u")]
+position = Vector2(57, 100)
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1408426347]
-position = Vector2(-88, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg6" parent="Row6PegContainer" unique_id=1014552906 instance=ExtResource("6_v174u")]
+position = Vector2(90, 97)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4/CollisionShape2D7" unique_id=135519415]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Row7PegContainer" type="Node2D" parent="." unique_id=463280446]
+position = Vector2(0, -63)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1816661700]
-position = Vector2(24, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg" parent="Row7PegContainer" unique_id=1998679286 instance=ExtResource("6_v174u")]
+position = Vector2(-15, 130)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4/CollisionShape2D4" unique_id=1097651701]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg2" parent="Row7PegContainer" unique_id=962283002 instance=ExtResource("6_v174u")]
+position = Vector2(-45, 128)
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D4" unique_id=251828381]
-position = Vector2(88, -91)
-shape = SubResource("CircleShape2D_qdft7")
+[node name="Peg3" parent="Row7PegContainer" unique_id=180492363 instance=ExtResource("6_v174u")]
+position = Vector2(-75, 122)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4/CollisionShape2D6" unique_id=1456939991]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg4" parent="Row7PegContainer" unique_id=1166784206 instance=ExtResource("6_v174u")]
+position = Vector2(15, 130)
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=1267492438]
-position = Vector2(15, 100)
+[node name="Peg5" parent="Row7PegContainer" unique_id=1635128543 instance=ExtResource("6_v174u")]
+position = Vector2(45, 127)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1725106966]
-position = Vector2(-2, -84)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5/CollisionShape2D" unique_id=727499587]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1223927636]
-position = Vector2(-28, -84)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5/CollisionShape2D2" unique_id=1996778978]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D5" unique_id=2051377591]
-position = Vector2(-60, -88)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5/CollisionShape2D3" unique_id=335214865]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D5" unique_id=219765317]
-position = Vector2(-90, -91)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5/CollisionShape2D7" unique_id=1321548772]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D5" unique_id=162443117]
-position = Vector2(30, -88)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5/CollisionShape2D4" unique_id=1934467138]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1298576450]
-position = Vector2(60, -91)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5/CollisionShape2D5" unique_id=15956326]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D5" unique_id=251081875]
-position = Vector2(90, -91)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5/CollisionShape2D6" unique_id=1429273586]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D5" unique_id=498771382]
-position = Vector2(-120, -91)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5/CollisionShape2D8" unique_id=1812346055]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=1083491589]
-position = Vector2(0, 125)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=675002891]
-position = Vector2(0, -118)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6/CollisionShape2D" unique_id=451468940]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D6" unique_id=485664201]
-position = Vector2(-28, -83)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6/CollisionShape2D2" unique_id=207057298]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D6" unique_id=1652516152]
-position = Vector2(-57, -88)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6/CollisionShape2D3" unique_id=1194566896]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D6" unique_id=927030710]
-position = Vector2(-90, -91)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6/CollisionShape2D7" unique_id=763200656]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D6" unique_id=687604366]
-position = Vector2(28, -84)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6/CollisionShape2D4" unique_id=1210011663]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D6" unique_id=1810962435]
-position = Vector2(57, -88)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6/CollisionShape2D5" unique_id=1828751580]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D6" unique_id=491986468]
-position = Vector2(90, -91)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6/CollisionShape2D6" unique_id=1027729359]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="StaticBody2D7" type="StaticBody2D" parent="." unique_id=1313103980]
-position = Vector2(15, 150)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7" unique_id=545820021]
-position = Vector2(0, -83)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D7/CollisionShape2D" unique_id=1338325527]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D7" unique_id=1311513038]
-position = Vector2(-30, -83)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D7/CollisionShape2D2" unique_id=336570365]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D7" unique_id=238087960]
-position = Vector2(-60, -85)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D7/CollisionShape2D3" unique_id=105245780]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D7" unique_id=421468239]
-position = Vector2(-90, -91)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D7/CollisionShape2D7" unique_id=691100105]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D7" unique_id=255514664]
-position = Vector2(30, -86)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D7/CollisionShape2D4" unique_id=394981515]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D7" unique_id=821146565]
-position = Vector2(60, -91)
-shape = SubResource("CircleShape2D_qdft7")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D7/CollisionShape2D5" unique_id=983062]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_1t3xs")
+[node name="Peg6" parent="Row7PegContainer" unique_id=113603561 instance=ExtResource("6_v174u")]
+position = Vector2(75, 122)
 
 [node name="OverflowBucket" type="StaticBody2D" parent="." unique_id=484323597]
+physics_material_override = SubResource("PhysicsMaterial_3hiem")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverflowBucket" unique_id=826418648]
 position = Vector2(0, 98)
@@ -449,21 +265,31 @@ scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_jqgjh")
 
 [node name="Sprite2D" type="Sprite2D" parent="OverflowBucket" unique_id=1902981266]
+visible = false
 position = Vector2(-2.842171e-14, 98)
 scale = Vector2(0.15624999, 0.023437506)
 texture = ExtResource("4_1t3xs")
 
 [node name="Sprite2D2" type="Sprite2D" parent="OverflowBucket" unique_id=82422982]
+visible = false
 position = Vector2(-59.618275, 84.38432)
 rotation = 0.2617994
 scale = Vector2(0.79712266, 0.023437506)
 texture = ExtResource("4_1t3xs")
 
 [node name="Sprite2D3" type="Sprite2D" parent="OverflowBucket" unique_id=1011349086]
+visible = false
 position = Vector2(59.19688, 84.60751)
 rotation = -0.2617994
 scale = Vector2(0.8081295, 0.023437506)
 texture = ExtResource("4_1t3xs")
+
+[node name="Bowl" type="Sprite2D" parent="OverflowBucket" unique_id=379883839]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, 99)
+scale = Vector2(7.1999965, 4)
+texture = ExtResource("7_1t3xs")
 
 [node name="Hole" type="Area2D" parent="." unique_id=35022782 node_paths=PackedStringArray("area2D")]
 position = Vector2(0, 90)
@@ -471,7 +297,15 @@ script = ExtResource("6_v32la")
 area2D = NodePath(".")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hole" unique_id=1397342831]
-position = Vector2(0, 2)
+position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_rq8yp")
+
+[node name="Hole2" type="Sprite2D" parent="Hole" unique_id=1220897872]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(0, -5)
+scale = Vector2(2, 2)
+texture = ExtResource("4_v174u")
 
 [connection signal="body_entered" from="Hole" to="Hole" method="_on_body_entered"]
