@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	$"../CameraController/BallCount".text = "Balls: " + str(pachinkoBallsCount)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept") && pachinkoBallsCount > 0 && !isBallActive:
+	if event.is_action_pressed("drop_ball") && pachinkoBallsCount > 0 && !isBallActive && ShopMaster.time_to_shop == false:
 		pachinkoBallsCount -= 1
 		var ball = pachinkoBall.instantiate();
 		get_tree().root.add_child(ball)
