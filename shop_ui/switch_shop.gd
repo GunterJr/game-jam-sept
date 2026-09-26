@@ -13,5 +13,5 @@ func _process(delta):
 			self.global_position.y -= shop_switch_speed
 	
 	if Input.is_action_just_pressed("shop_button"):
-		if ShopMaster.time_to_shop == false:
-			ShopMaster.time_to_shop = true
+		ShopMaster.time_to_shop = true
+		#print(str(ShopMaster.time_to_shop))
