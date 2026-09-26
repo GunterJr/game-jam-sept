@@ -1,8 +1,8 @@
 extends RigidBody2D
+class_name PachinkoBall
 
 @export var fallingGravity: float
-
-var isDropped = false
+var ballDropper : BallDropper
 
 func _ready():
 	angular_velocity = randf_range(-5.0, 5.0)

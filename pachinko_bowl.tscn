@@ -1,21 +1,27 @@
 [gd_scene format=3 uid="uid://c3nxjqhl4goiw"]
 
 [ext_resource type="Texture2D" uid="uid://33n2kjhmvpnu" path="res://icon.svg" id="1_avtbx"]
+[ext_resource type="Script" uid="uid://wjccowlxq7fk" path="res://PachinkoBowl.gd" id="2_dy846"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytma0"]
 size = Vector2(6, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqgjh"]
-size = Vector2(3, 10.9396925)
+size = Vector2(3, 13.073755)
 
-[node name="Bowl" type="StaticBody2D" unique_id=283252032]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ytma0"]
+radius = 4.0
+
+[node name="Bowl" type="StaticBody2D" unique_id=283252032 node_paths=PackedStringArray("area2D")]
+script = ExtResource("2_dy846")
+area2D = NodePath("Hole")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=889866961]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_ytma0")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=802886731]
-position = Vector2(-8, 6)
+position = Vector2(-9.002682, 5.6350536)
 rotation = -1.2217305
 shape = SubResource("RectangleShape2D_jqgjh")
 
@@ -30,13 +36,21 @@ scale = Vector2(0.046874996, 0.03125)
 texture = ExtResource("1_avtbx")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=930230423]
-position = Vector2(-7, 5.9999995)
+position = Vector2(-7.528803, 5.807531)
 rotation = -1.2217305
-scale = Vector2(0.023437511, 0.11340129)
+scale = Vector2(0.023437511, 0.12219409)
 texture = ExtResource("1_avtbx")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1579619446]
-position = Vector2(7, 6)
+position = Vector2(7.5806627, 5.788656)
 rotation = 1.2217305
-scale = Vector2(0.023437511, 0.11340129)
+scale = Vector2(0.023437511, 0.123056434)
 texture = ExtResource("1_avtbx")
+
+[node name="Hole" type="Area2D" parent="." unique_id=1771485590]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hole" unique_id=1834116306]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ytma0")
+
+[connection signal="body_entered" from="Hole" to="." method="_on_body_entered"]
