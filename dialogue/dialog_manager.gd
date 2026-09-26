@@ -15,9 +15,6 @@ var json_out: Array
 
 @onready var textbox: RichTextLabel = %Textbox
 
-func _ready() -> void:
-	load_dialog()
-
 ## Parse a JSON file and call print_dialog on each dictionary
 func load_dialog() -> void:
 	var file := FileAccess.open(json_path, FileAccess.READ)
