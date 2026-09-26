@@ -3,8 +3,6 @@
 class_name DialogManager
 extends Node
 
-
-
 @export_file_path var json_path: String
 
 @export_category("Text Speeds")
@@ -16,9 +14,6 @@ var json_out: Array
 @onready var textbox: RichTextLabel = %Textbox
 @onready var panel: PanelContainer = $Panel
 @onready var char_name_box: Label = $Panel/MarginContainer/HBoxContainer/CharName
-
-func _ready() -> void:
-	load_dialog()
 
 ## Parse a JSON file (convo) and call print_dialog on each dictionary
 func load_dialog() -> void:

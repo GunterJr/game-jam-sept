@@ -7,6 +7,7 @@ script = ExtResource("1_tp7tx")
 json_path = "res://dialogue/strings/test.json"
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=920999922]
+visible = false
 custom_minimum_size = Vector2(360, 64)
 anchors_preset = 7
 anchor_left = 0.5
