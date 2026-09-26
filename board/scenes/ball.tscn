@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dc77ep4i1jpjv"]
+
+[ext_resource type="Script" uid="uid://cxv26wvih55bk" path="res://board/scripts/PachinkoBall.gd" id="1_41u45"]
+[ext_resource type="Texture2D" uid="uid://33n2kjhmvpnu" path="res://icon.svg" id="2_ktgx5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8l818"]
+bounce = 0.4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdft7"]
+radius = 7.0
+
+[node name="ball" type="RigidBody2D" unique_id=276826785]
+physics_material_override = SubResource("PhysicsMaterial_8l818")
+script = ExtResource("1_41u45")
+fallingGravity = 0.8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=446572225]
+shape = SubResource("CircleShape2D_qdft7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1217201562]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ktgx5")
