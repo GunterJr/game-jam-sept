@@ -45,6 +45,7 @@ script = ExtResource("2_3hiem")
 oscAmount = 25.0
 dropHeight = -130.0
 pachinkoBall = ExtResource("3_v174u")
+pachinkoBallsCount = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="BallDropper" unique_id=365867069]
 scale = Vector2(0.05, 0.05)
@@ -62,12 +63,15 @@ shape = SubResource("RectangleShape2D_qdft7")
 
 [node name="Bowl" parent="." unique_id=283252032 instance=ExtResource("5_cy7ac")]
 position = Vector2(-60, -14)
+scoreAmount = 4
 
 [node name="Bowl2" parent="." unique_id=693668762 instance=ExtResource("5_cy7ac")]
 position = Vector2(60, -14)
+scoreAmount = 4
 
 [node name="Bowl3" parent="." unique_id=635544730 instance=ExtResource("5_cy7ac")]
 position = Vector2(0, 39)
+scoreAmount = 8
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2074507176]
 position = Vector2(16, 0)

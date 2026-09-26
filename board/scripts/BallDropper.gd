@@ -6,7 +6,7 @@ class_name BallDropper
 @export var pachinkoBall: PackedScene
 
 var time = 0
-var pachinkoBallsCount = 5
+@export var pachinkoBallsCount = 5
 var isBallActive: bool = false
 
 func _process(delta: float) -> void:
