@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c3nxjqhl4goiw"]
+
+[ext_resource type="Texture2D" uid="uid://33n2kjhmvpnu" path="res://icon.svg" id="1_avtbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytma0"]
+size = Vector2(50, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqgjh"]
+size = Vector2(3, 20)
+
+[node name="Bowl" type="StaticBody2D" unique_id=283252032]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=889866961]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_ytma0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=802886731]
+position = Vector2(-23.5, -4)
+shape = SubResource("RectangleShape2D_jqgjh")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=1606884321]
+position = Vector2(24, -4)
+shape = SubResource("RectangleShape2D_jqgjh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=158067049]
+position = Vector2(2.9802322e-08, 8)
+scale = Vector2(0.3984375, 0.03125)
+texture = ExtResource("1_avtbx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=930230423]
+position = Vector2(-23.5, -1.9999993)
+scale = Vector2(0.023437511, 0.18749999)
+texture = ExtResource("1_avtbx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1234958002]
+position = Vector2(23.999996, -1.5000005)
+scale = Vector2(0.023437511, 0.19531249)
+texture = ExtResource("1_avtbx")

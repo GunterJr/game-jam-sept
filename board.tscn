@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://xprsejn6e008"]
+
+[ext_resource type="Script" uid="uid://d31k642v7cab" path="res://BallDropper.gd" id="1_8l818"]
+[ext_resource type="PackedScene" uid="uid://dc77ep4i1jpjv" path="res://ball.tscn" id="1_psm7c"]
+[ext_resource type="Texture2D" uid="uid://33n2kjhmvpnu" path="res://icon.svg" id="2_psm7c"]
+[ext_resource type="PackedScene" uid="uid://b5wxd3873rsy4" path="res://pachinko_layer.tscn" id="4_jqgjh"]
+[ext_resource type="PackedScene" uid="uid://c3nxjqhl4goiw" path="res://pachinko_bowl.tscn" id="5_vf5bc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdft7"]
+size = Vector2(31, 302)
+
+[node name="Board" type="Node2D" unique_id=997364691]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=531195904]
+zoom = Vector2(2, 2)
+
+[node name="BallDropper" type="Node2D" parent="." unique_id=472102467]
+script = ExtResource("1_8l818")
+oscAmount = 25.0
+dropHeight = -130.0
+PachinkoBall = ExtResource("1_psm7c")
+
+[node name="Sprite2D" type="Sprite2D" parent="BallDropper" unique_id=365867069]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_psm7c")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=547656392]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=265995599]
+position = Vector2(141, -6)
+shape = SubResource("RectangleShape2D_qdft7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1103344943]
+position = Vector2(-159, -5)
+shape = SubResource("RectangleShape2D_qdft7")
+
+[node name="PachinkoLayer" parent="." unique_id=244037044 instance=ExtResource("4_jqgjh")]
+position = Vector2(-1, -29)
+
+[node name="PachinkoLayer2" parent="." unique_id=494389821 instance=ExtResource("4_jqgjh")]
+position = Vector2(-18, -4)
+
+[node name="PachinkoLayer3" parent="." unique_id=1804746412 instance=ExtResource("4_jqgjh")]
+position = Vector2(0, 21)
+
+[node name="PachinkoLayer4" parent="." unique_id=977488013 instance=ExtResource("4_jqgjh")]
+position = Vector2(-18, 46)
+
+[node name="PachinkoLayer5" parent="." unique_id=454658123 instance=ExtResource("4_jqgjh")]
+position = Vector2(0, 71)
+
+[node name="PachinkoLayer6" parent="." unique_id=1093566860 instance=ExtResource("4_jqgjh")]
+position = Vector2(-18, 96)
+
+[node name="PachinkoLayer7" parent="." unique_id=1781163336 instance=ExtResource("4_jqgjh")]
+position = Vector2(0, 121)
+
+[node name="PachinkoLayer8" parent="." unique_id=1102831630 instance=ExtResource("4_jqgjh")]
+position = Vector2(-18, 146)
+
+[node name="PachinkoLayer9" parent="." unique_id=1081538984 instance=ExtResource("4_jqgjh")]
+position = Vector2(0, 171)
+
+[node name="Bowl" parent="." unique_id=283252032 instance=ExtResource("5_vf5bc")]
+position = Vector2(-109, 151)
+
+[node name="Bowl2" parent="." unique_id=1322086355 instance=ExtResource("5_vf5bc")]
+position = Vector2(-58, 151)
+
+[node name="Bowl3" parent="." unique_id=1609134897 instance=ExtResource("5_vf5bc")]
+position = Vector2(-7, 151)
+
+[node name="Bowl4" parent="." unique_id=43036941 instance=ExtResource("5_vf5bc")]
+position = Vector2(44, 151)
+
+[node name="Bowl5" parent="." unique_id=1775793581 instance=ExtResource("5_vf5bc")]
+position = Vector2(95, 152)
