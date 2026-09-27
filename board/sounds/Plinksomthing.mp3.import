@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Plinksomthing.mp3-d069b7e3b3a806ba997df87c7c8
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

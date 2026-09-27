@@ -63,10 +63,10 @@ columns = 2
 
 [node name="Button" type="Button" parent="shop_master/GridContainer" unique_id=960232767 node_paths=PackedStringArray("switchShop")]
 layout_mode = 2
-icon = ExtResource("4_nvx4c")
-flat = true
+text = "Bouncy Balls
+Cost: 15 Balls"
 script = ExtResource("5_obxmp")
-cost = 200
+cost = 15
 item_name = "Power up 1"
 button_focus = true
 turnsLeft = 5
@@ -75,32 +75,37 @@ switchShop = NodePath("../../..")
 
 [node name="Button2" type="Button" parent="shop_master/GridContainer" unique_id=1780586078 node_paths=PackedStringArray("switchShop")]
 layout_mode = 2
-icon = ExtResource("4_nvx4c")
-flat = true
+text = "Ultra Heavy Balls
+Cost: 15 Balls"
 script = ExtResource("5_obxmp")
-cost = 300
+cost = 30
 item_name = "Power up 2"
+turnsLeft = 5
+bouncinessModifier = -5.0
 heavinessModifier = 100.0
 switchShop = NodePath("../../..")
 
 [node name="Button3" type="Button" parent="shop_master/GridContainer" unique_id=1270082167 node_paths=PackedStringArray("switchShop")]
 layout_mode = 2
-icon = ExtResource("4_nvx4c")
-flat = true
+text = "Ultra Light Balls
+Cost: 20 Balls"
 script = ExtResource("5_obxmp")
-cost = 150
+cost = 20
 item_name = "Power up 3"
-heavinessModifier = -0.1
+turnsLeft = 5
+heavinessModifier = -100.0
 switchShop = NodePath("../../..")
 
 [node name="Button4" type="Button" parent="shop_master/GridContainer" unique_id=1361552148 node_paths=PackedStringArray("switchShop")]
 layout_mode = 2
-icon = ExtResource("4_nvx4c")
-flat = true
+text = "Super Balls
+Cost: 50 Balls"
 script = ExtResource("5_obxmp")
-cost = 500
+cost = 50
 item_name = "Power up 4"
-scoreModifier = 2
+turnsLeft = 5
+heavinessModifier = 1000.0
+scoreModifier = 3
 switchShop = NodePath("../../..")
 
 [node name="Exit_Button" type="Button" parent="shop_master" unique_id=435816980]

@@ -30,9 +30,11 @@ func _input(event: InputEvent) -> void:
 		
 		# apply powerups
 		for drink in drinks:
+			if drink.turnsLeft == 0: break
 			(ball as RigidBody2D).physics_material_override.bounce += drink.bouncinessModifier;
 			(ball as RigidBody2D).mass += drink.heavinessModifier;
 			drink.turnsLeft -= 1;
+			
 		
 		isBallActive += 1
 		pachinkoBallsCount -= 1
