@@ -1,0 +1,56 @@
+[
+	{
+		"hide_mode":true,
+		"name":"MC",
+		"text":"Suit cuffs pinched my wrists from a long day at work. A deep ache, originating at the small of my back, ascended each floor of my spine to my head."
+	},
+	{
+		"name":"MC",
+		"text":"But as I passed the threshold into the dizzying world of pachinko, none of that mattered anymore."
+	},
+	{
+		"hide_mode":false,
+		"name":"MC",
+		"text":"W-wow...! I can't believe how many games there are."
+	},
+	{
+		"name":"Old Woman",
+		"text":"Heh. Never been to pachinko before, have you?"
+	},
+	{
+		"name":"MC",
+		"text":"I hadn't thought of it. Are you the manager? How do I play?"
+	},
+	{
+		"name":"Bum",
+		"text":"Nooooo! That was my entire salary, dammit! Guess it's time to sell the house and divorce my wire- hell, I'll sell the kittens too."
+	},
+	{
+		"name":"MC",
+		"text":"Umm. Is he okay?"
+	},
+	{
+		"name":"Old Woman",
+		"text":"Don’t pay him any mind. If you’re a lucky cat like me, then you have nothing to fear."
+	},
+	{
+		"name":"MC",
+		"text":"S-sure."
+	},
+	{
+		"name":"Bum",
+		"text":"I heard that, you heartless feline! I may not have found the secret yet, but I know you’re cheating somehow."
+	},
+	{
+		"name":"Old Woman",
+		"text":"So, you don’t know how to play, right? Here, have a go at my favorite game."
+	},
+	{
+		"name":"Narrator",
+		"text":"The old woman handed my a cup full of steel balls."
+	},
+	{
+		"name":"MC",
+		"text":"\"Waterfall\"..."
+	}
+]
