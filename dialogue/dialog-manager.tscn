@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ctxcwosjgp2rc" path="res://dialogue/dialog_manager.gd" id="1_tp7tx"]
 [ext_resource type="Texture2D" uid="uid://dk0hoty404yh2" path="res://dialogue/mc/default.PNG" id="2_640sx"]
-[ext_resource type="Texture2D" uid="uid://caa6xiixhe8p5" path="res://dialogue/mc/impatient.PNG" id="3_8g4js"]
+[ext_resource type="Texture2D" uid="uid://bs0k53tldepeh" path="res://dialogue/mc/happy.PNG" id="3_446fm"]
 [ext_resource type="Texture2D" uid="uid://c0o4j7f6pxem2" path="res://dialogue/mc/scared.PNG" id="4_446fm"]
+[ext_resource type="Texture2D" uid="uid://ccvo3skg472jo" path="res://dialogue/mc/nervous.PNG" id="4_fuxjh"]
 [ext_resource type="Texture2D" uid="uid://c06bpj2lbm1q8" path="res://dialogue/mc/empty.PNG" id="5_fuxjh"]
 [ext_resource type="Texture2D" uid="uid://bp382bmoj7cww" path="res://dialogue/mc/broken.PNG" id="6_f88ns"]
+[ext_resource type="Texture2D" uid="uid://pkyxnpj6n66r" path="res://dialogue/mc/MC_panic2.PNG" id="6_kc3ay"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_80v7d"]
 random_pitch = 1.0594631
@@ -13,7 +15,7 @@ random_pitch = 1.0594631
 [node name="DialogManager" type="Node" unique_id=1840127325]
 script = ExtResource("1_tp7tx")
 json_path = "res://dialogue/strings/test.json"
-mc_expressions = Array[Texture2D]([ExtResource("2_640sx"), ExtResource("3_8g4js"), ExtResource("4_446fm"), ExtResource("5_fuxjh"), ExtResource("6_f88ns")])
+mc_expressions = Array[Texture2D]([ExtResource("2_640sx"), ExtResource("3_446fm"), ExtResource("4_fuxjh"), ExtResource("4_446fm"), ExtResource("6_kc3ay"), ExtResource("5_fuxjh"), ExtResource("6_f88ns")])
 char_wait_seconds = 0.04
 
 [node name="Portrait" type="TextureRect" parent="." unique_id=1047568725]

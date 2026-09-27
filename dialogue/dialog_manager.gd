@@ -23,7 +23,15 @@ var curr_expression: int = 0
 
 enum Characters {MC, BROKER, BUM}
 
-enum MCExpression {DEFAULT, IMPATIENT, SCARED, EMPTY, BROKEN}
+var expression_dict: Dictionary = {
+	"Default" : 0,
+	"Happy"   : 1,
+	"Nervous" : 2,
+	"Panic1"  : 3,
+	"Panic2"  : 4,
+	"Empty"   : 5,
+	"Broken"  : 6,
+}
 
 ## Parse a JSON file (convo) and call print_dialog on each dictionary
 func load_dialog() -> void:
@@ -49,7 +57,8 @@ func load_dialog() -> void:
 		if dict.get("hide_mode") != null:
 			char_hide_override = dict.get("hide_mode")
 		if dict.get("expression") != null:
-			curr_expression = dict.get("expression")
+			var exp_desc: String = dict.get("expression")
+			curr_expression = expression_dict.get(exp_desc)
 		await print_dialog(dict.get("text"), dict.get("name"))
 
 	panel.visible = false
