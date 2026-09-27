@@ -1,14 +1,14 @@
 extends Node2D
 class_name BallDropper
 
-signal out_of_balls()
+signal out_of_balls(ballsLeft: int)
 
 @export var oscAmount: float
 @export var dropHeight: float
 @export var pachinkoBall: PackedScene
 
 var time = 0
-@export var pachinkoBallsCount = 5
+@export var pachinkoBallsCount = 0
 var isBallActive: int = 0
 
 var drinks: Array[powerup]
@@ -20,8 +20,6 @@ func _process(delta: float) -> void:
 	time += delta
 	position = Vector2(sin(time) * oscAmount, dropHeight)
 	$"../CameraController/BallCount".text = "Balls: " + str(pachinkoBallsCount)
-	if(pachinkoBallsCount == 0 && isBallActive == 0):
-		out_of_balls.emit();
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("drop_ball") && pachinkoBallsCount > 0 && ShopMaster.time_to_shop == false:
@@ -47,6 +45,9 @@ func add_ball_count(count: int) -> void:
 	for drink in drinks:
 		scoreMult += drink.scoreModifier
 	pachinkoBallsCount += count * scoreMult;
+
+func cash_out():
+	out_of_balls.emit(pachinkoBallsCount);
 
 func addPowerup(turnsLeft: int, bouncinessModifier: float, heavinessModifier: float, scoreModifier: int):
 	var newDrink = powerup.new();

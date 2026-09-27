@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c16r7ngyr5bjt" path="res://board/scripts/CameraController.gd" id="1_cy7ac"]
 [ext_resource type="Script" uid="uid://d31k642v7cab" path="res://board/scripts/BallDropper.gd" id="2_3hiem"]
+[ext_resource type="Script" uid="uid://kdseoahl6yuu" path="res://board/scripts/CashOutButton.gd" id="3_6wkty"]
 [ext_resource type="PackedScene" uid="uid://dc77ep4i1jpjv" path="res://board/scenes/ball.tscn" id="3_v174u"]
 [ext_resource type="Texture2D" uid="uid://33n2kjhmvpnu" path="res://icon.svg" id="4_1t3xs"]
 [ext_resource type="Texture2D" uid="uid://qpo7qkl5gi86" path="res://board/sprites/ball-export.png" id="4_v174u"]
@@ -30,7 +31,8 @@ size = Vector2(102.36226, 3)
 radius = 12.0
 
 [sub_resource type="Gradient" id="Gradient_v32la"]
-colors = PackedColorArray(0.039215688, 0.050980393, 0.078431375, 1, 0.12454364, 0.20428541, 0.24415632, 1)
+offsets = PackedFloat32Array(0, 0.54518074, 1)
+colors = PackedColorArray(0.039215688, 0.050980393, 0.078431375, 1, 0.11126692, 0.16665077, 0.20818864, 1, 0.12454364, 0.20428541, 0.24415632, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qdft7"]
 gradient = SubResource("Gradient_v32la")
@@ -59,19 +61,31 @@ theme_override_font_sizes/font_size = 32
 modulate = Color(1, 1, 1, 0.39215687)
 z_index = 2
 texture_filter = 1
-position = Vector2(121.5, -54.5)
+position = Vector2(105, -55)
 texture = ExtResource("10_bp0hc")
 
 [node name="DownArrow" type="Sprite2D" parent="CameraController" unique_id=156622]
 modulate = Color(1, 1, 1, 0.39215687)
 z_index = 2
 texture_filter = 1
-position = Vector2(122.5, 55.5)
+position = Vector2(106, 55)
 texture = ExtResource("10_bp0hc")
 flip_v = true
 
 [node name="Camera2D" type="Camera2D" parent="CameraController" unique_id=531195904]
 zoom = Vector2(5, 5)
+
+[node name="CashOut" type="Button" parent="CameraController" unique_id=606657987 node_paths=PackedStringArray("ballDropper")]
+z_index = 36
+offset_left = -113.0
+offset_top = 40.0
+offset_right = -60.0
+offset_bottom = 62.0
+theme_override_font_sizes/font_size = 10
+action_mode = 0
+text = "Cash Out"
+script = ExtResource("3_6wkty")
+ballDropper = NodePath("../../BallDropper")
 
 [node name="BallDropper" type="Node2D" parent="." unique_id=472102467]
 position = Vector2(0, -130)
@@ -102,15 +116,15 @@ shape = SubResource("RectangleShape2D_qdft7")
 
 [node name="Bowl" parent="." unique_id=283252032 instance=ExtResource("5_cy7ac")]
 position = Vector2(-60, -14)
-scoreAmount = 2
+scoreAmount = 3
 
 [node name="Bowl2" parent="." unique_id=693668762 instance=ExtResource("5_cy7ac")]
 position = Vector2(60, -14)
-scoreAmount = 2
+scoreAmount = 3
 
 [node name="Bowl3" parent="." unique_id=635544730 instance=ExtResource("5_cy7ac")]
 position = Vector2(0, 39)
-scoreAmount = 4
+scoreAmount = 6
 
 [node name="Row1PegContainer" type="Node2D" parent="." unique_id=776917274]
 position = Vector2(0, -91)
@@ -332,13 +346,15 @@ ballDropper = NodePath("../BallDropper")
 [node name="Background" type="TextureRect" parent="." unique_id=2014626066]
 z_index = -10
 offset_left = -134.0
-offset_top = -146.0
+offset_top = -176.0
 offset_right = 143.0
 offset_bottom = 169.0
+mouse_filter = 2
 texture = SubResource("GradientTexture2D_qdft7")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=894294004]
 unique_name_in_owner = true
 stream = ExtResource("12_3dy48")
 
+[connection signal="button_down" from="CameraController/CashOut" to="CameraController/CashOut" method="_on_button_down"]
 [connection signal="body_entered" from="Hole" to="Hole" method="_on_body_entered"]
