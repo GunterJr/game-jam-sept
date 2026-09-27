@@ -26,8 +26,8 @@ func _input(event: InputEvent) -> void:
 		
 		# apply powerups
 		for drink in drinks:
-			(ball as RigidBody2D).physics_material_override.bounce += drink.bounciness;
-			(ball as RigidBody2D).mass += drink.heaviness;
+			(ball as RigidBody2D).physics_material_override.bounce += drink.bouncinessModifier;
+			(ball as RigidBody2D).mass += drink.heavinessModifier;
 			drink.turnsLeft -= 1;
 		
 		isBallActive = true
@@ -40,6 +40,14 @@ func add_ball_count(count: int) -> void:
 	for drink in drinks:
 		scoreMult += drink.scoreModifier
 	pachinkoBallsCount += count * scoreMult;
+
+func addPowerup(turnsLeft: int, bouncinessModifier: float, heavinessModifier: float, scoreModifier: int):
+	var newDrink = powerup.new();
+	newDrink.turnsLeft = turnsLeft;
+	newDrink.bouncinessModifier = bouncinessModifier;
+	newDrink.heavinessModifier = heavinessModifier;
+	newDrink.scoreModifier = scoreModifier;
+	drinks.append(newDrink);
 
 class powerup:
 	var turnsLeft

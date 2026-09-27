@@ -19,7 +19,6 @@ grow_vertical = 2
 script = ExtResource("1_60jjf")
 shop_pos = 700.0
 down_pos = 2000.0
-shop_switch_speed = 25.0
 
 [node name="shop_master" type="Node2D" parent="." unique_id=191175357]
 position = Vector2(553, -644)
@@ -62,7 +61,7 @@ theme_override_constants/h_separation = 100
 theme_override_constants/v_separation = 100
 columns = 2
 
-[node name="Button" type="Button" parent="shop_master/GridContainer" unique_id=960232767]
+[node name="Button" type="Button" parent="shop_master/GridContainer" unique_id=960232767 node_paths=PackedStringArray("switchShop")]
 layout_mode = 2
 icon = ExtResource("4_nvx4c")
 flat = true
@@ -70,30 +69,39 @@ script = ExtResource("5_obxmp")
 cost = 200
 item_name = "Power up 1"
 button_focus = true
+turnsLeft = 5
+bouncinessModifier = 0.5
+switchShop = NodePath("../../..")
 
-[node name="Button2" type="Button" parent="shop_master/GridContainer" unique_id=1780586078]
+[node name="Button2" type="Button" parent="shop_master/GridContainer" unique_id=1780586078 node_paths=PackedStringArray("switchShop")]
 layout_mode = 2
 icon = ExtResource("4_nvx4c")
 flat = true
 script = ExtResource("5_obxmp")
 cost = 300
 item_name = "Power up 2"
+heavinessModifier = 100.0
+switchShop = NodePath("../../..")
 
-[node name="Button3" type="Button" parent="shop_master/GridContainer" unique_id=1270082167]
+[node name="Button3" type="Button" parent="shop_master/GridContainer" unique_id=1270082167 node_paths=PackedStringArray("switchShop")]
 layout_mode = 2
 icon = ExtResource("4_nvx4c")
 flat = true
 script = ExtResource("5_obxmp")
 cost = 150
 item_name = "Power up 3"
+heavinessModifier = -0.1
+switchShop = NodePath("../../..")
 
-[node name="Button4" type="Button" parent="shop_master/GridContainer" unique_id=1361552148]
+[node name="Button4" type="Button" parent="shop_master/GridContainer" unique_id=1361552148 node_paths=PackedStringArray("switchShop")]
 layout_mode = 2
 icon = ExtResource("4_nvx4c")
 flat = true
 script = ExtResource("5_obxmp")
 cost = 500
 item_name = "Power up 4"
+scoreModifier = 2
+switchShop = NodePath("../../..")
 
 [node name="Exit_Button" type="Button" parent="shop_master" unique_id=435816980]
 offset_left = 172.28845

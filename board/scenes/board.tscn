@@ -313,7 +313,7 @@ position = Vector2(0, -5)
 scale = Vector2(2, 2)
 texture = ExtResource("4_v174u")
 
-[node name="shop" parent="." unique_id=1251339410 instance=ExtResource("11_v32la")]
+[node name="shop" parent="." unique_id=1251339410 node_paths=PackedStringArray("ballDropper") instance=ExtResource("11_v32la")]
 z_index = 12
 offset_left = -89.0
 offset_top = 171.0
@@ -323,5 +323,6 @@ scale = Vector2(0.16, 0.16)
 shop_pos = 140.0
 down_pos = 350.0
 switch_speed = 4.0
+ballDropper = NodePath("../BallDropper")
 
 [connection signal="body_entered" from="Hole" to="Hole" method="_on_body_entered"]
