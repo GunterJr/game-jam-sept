@@ -67,12 +67,14 @@ func print_dialog(dialog: String, char_name: String) -> void:
 	else:
 		portrait.visible = false
 
+	await get_tree().process_frame
+
 	for c in range(0, dialog.length()):
 		textbox.visible_characters += 1
-		# if Input.is_action_just_pressed("ui_accept"): break
+		if Input.is_action_pressed("ui_accept") && textbox.visible_characters > 8: break
 		await get_tree().create_timer(char_wait_seconds).timeout
 
 	textbox.visible_characters = -1
-	# await get_tree().create_timer(line_wait_seconds).timeout
+	await get_tree().process_frame
 	while !Input.is_action_just_pressed("ui_accept"):
 		await get_tree().process_frame

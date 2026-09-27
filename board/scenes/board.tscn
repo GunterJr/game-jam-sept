@@ -28,6 +28,14 @@ size = Vector2(102.36226, 3)
 [sub_resource type="CircleShape2D" id="CircleShape2D_rq8yp"]
 radius = 12.0
 
+[sub_resource type="Gradient" id="Gradient_v32la"]
+colors = PackedColorArray(0.039215688, 0.050980393, 0.078431375, 1, 0.12454364, 0.20428541, 0.24415632, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qdft7"]
+gradient = SubResource("Gradient_v32la")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
 [node name="Board" type="Node2D" unique_id=997364691]
 
 [node name="CameraController" type="Node2D" parent="." unique_id=1456488899]
@@ -70,7 +78,7 @@ script = ExtResource("2_3hiem")
 oscAmount = 25.0
 dropHeight = -130.0
 pachinkoBall = ExtResource("3_v174u")
-pachinkoBallsCount = 1
+pachinkoBallsCount = 10
 
 [node name="Hole2" type="Sprite2D" parent="BallDropper" unique_id=1767099367]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
@@ -324,5 +332,13 @@ shop_pos = 140.0
 down_pos = 350.0
 switch_speed = 4.0
 ballDropper = NodePath("../BallDropper")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2014626066]
+z_index = -10
+offset_left = -134.0
+offset_top = -146.0
+offset_right = 143.0
+offset_bottom = 169.0
+texture = SubResource("GradientTexture2D_qdft7")
 
 [connection signal="body_entered" from="Hole" to="Hole" method="_on_body_entered"]
