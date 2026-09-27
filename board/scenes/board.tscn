@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b5npaex5fyhvb" path="res://board/sprites/arrow.png" id="10_bp0hc"]
 [ext_resource type="PackedScene" uid="uid://bfsf65qwtdrf0" path="res://shop_ui/shop.tscn" id="11_v32la"]
 [ext_resource type="AudioStream" uid="uid://sq53qkicsaks" path="res://board/sounds/Plinksomthing.mp3" id="12_3dy48"]
+[ext_resource type="Texture2D" uid="uid://cggrlmrulxr3c" path="res://board/sprites/fih_bg.png" id="14_thho2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdft7"]
 size = Vector2(31, 302)
@@ -360,6 +361,12 @@ texture = SubResource("GradientTexture2D_qdft7")
 unique_name_in_owner = true
 stream = ExtResource("12_3dy48")
 bus = &"Music"
+
+[node name="FihBg" type="Sprite2D" parent="." unique_id=465017629]
+self_modulate = Color(1, 1, 1, 0.8039216)
+z_index = -10
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("14_thho2")
 
 [connection signal="button_down" from="CameraController/CashOut" to="CameraController/CashOut" method="_on_button_down"]
 [connection signal="body_entered" from="Hole" to="Hole" method="_on_body_entered"]
