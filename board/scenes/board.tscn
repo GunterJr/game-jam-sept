@@ -247,17 +247,11 @@ position = Vector2(-15, 130)
 [node name="Peg2" parent="Row7PegContainer" unique_id=962283002 instance=ExtResource("6_v174u")]
 position = Vector2(-45, 128)
 
-[node name="Peg3" parent="Row7PegContainer" unique_id=180492363 instance=ExtResource("6_v174u")]
-position = Vector2(-75, 122)
-
 [node name="Peg4" parent="Row7PegContainer" unique_id=1166784206 instance=ExtResource("6_v174u")]
 position = Vector2(15, 130)
 
 [node name="Peg5" parent="Row7PegContainer" unique_id=1635128543 instance=ExtResource("6_v174u")]
 position = Vector2(45, 127)
-
-[node name="Peg6" parent="Row7PegContainer" unique_id=113603561 instance=ExtResource("6_v174u")]
-position = Vector2(75, 122)
 
 [node name="OverflowBucket" type="StaticBody2D" parent="." unique_id=484323597]
 physics_material_override = SubResource("PhysicsMaterial_3hiem")
