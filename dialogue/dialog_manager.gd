@@ -63,7 +63,8 @@ func print_dialog(dialog: String, char_name: String) -> void:
 	elif char_name == "Broker":
 		portrait.texture = character_textures[Characters.BROKER]
 	elif char_name == "Bum":
-		portrait.texture = character_textures[Characters.BUM]
+		pass # broken because no sprites
+		#portrait.texture = character_textures[Characters.BUM]
 	else:
 		portrait.visible = false
 

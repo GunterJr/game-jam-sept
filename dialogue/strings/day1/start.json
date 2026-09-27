@@ -2,11 +2,15 @@
 	{
 		"hide_mode":true,
 		"name":"MC",
-		"text":"Suit cuffs pinched my wrists from a long day at work. A deep ache, originating at the small of my back, ascended each floor of my spine to my head."
+		"text":"[i]Suit cuffs pinched my wrists from a long day at work. A deep ache, originating at the base of my tail, ascended each floor of my spine to the tufts of my ears.[/i]"
 	},
 	{
 		"name":"MC",
-		"text":"But as I passed the threshold into the dizzying world of pachinko, none of that mattered anymore."
+		"text":"[i]But as I passed the threshold into the dizzying world of pachinko, none of that mattered anymore.[/i]"
+	},
+	{
+		"name":"MC",
+		"text":"[i]I had earned this break. I deserved a bit of fun, didn’t I?[/i]"
 	},
 	{
 		"hide_mode":false,
@@ -19,11 +23,11 @@
 	},
 	{
 		"name":"MC",
-		"text":"I hadn't thought of it. Are you the manager? How do I play?"
+		"text":"Are you the manager? How do I play?"
 	},
 	{
 		"name":"Bum",
-		"text":"Nooooo! That was my entire salary, dammit! Guess it's time to sell the house and divorce my wire- hell, I'll sell the kittens too."
+		"text":"Nooooo! That was my entire salary, dammit! Guess it’s time to sell the house and divorce my wife. Hell, I’ll sell the kittens, too."
 	},
 	{
 		"name":"MC",
@@ -43,14 +47,18 @@
 	},
 	{
 		"name":"Old Woman",
-		"text":"So, you don’t know how to play, right? Here, have a go at my favorite game."
+		"text":"So, you don’t know how to play. Here. Have a go at my favorite game."
 	},
 	{
-		"name":"Narrator",
-		"text":"The old woman handed my a cup full of steel balls."
+		"name":"MC",
+		"text":"[i]The old woman handed me a cup full of steel balls.[/i]"
 	},
 	{
 		"name":"MC",
 		"text":"\"Waterfall\"..."
-	}
+	},
+	{
+		"name":"MC",
+		"text":"[i]I sat down at the machine and loaded the balls into the slot.[/i]"
+	},
 ]
