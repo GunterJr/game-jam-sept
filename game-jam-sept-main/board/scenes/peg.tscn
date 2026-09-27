@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://817ldsc8kdku"]
+
+[ext_resource type="Script" uid="uid://88llbkn7yn6" path="res://board/scripts/peg.gd" id="1_juk33"]
+[ext_resource type="Texture2D" uid="uid://bpgyj2qm2g1kh" path="res://board/sprites/peg redone.png" id="2_wlqhe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdft7"]
+radius = 7.0
+
+[node name="Peg" type="Area2D" unique_id=726609374 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_juk33")
+sprite = NodePath("CollisionShape2D/Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=754119163]
+shape = SubResource("CircleShape2D_qdft7")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1958293856]
+texture_filter = 1
+texture = ExtResource("2_wlqhe")
+region_enabled = true
+region_rect = Rect2(0, 0, 15, 14)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=918446375]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=823152951]
+shape = SubResource("CircleShape2D_qdft7")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

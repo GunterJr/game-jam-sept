@@ -1,0 +1,14 @@
+extends Node2D
+
+@export var moveSpeed: float
+@export var maxDistance: float
+
+func _process(delta: float) -> void:
+	$UpArrow.visible = position.y > -maxDistance
+	$DownArrow.visible = position.y < maxDistance;
+	
+	if (Input.is_action_pressed("up") && position.y > -maxDistance):
+		if ShopMaster.time_to_shop == false:
+			position.y -= moveSpeed * delta
+	if (Input.is_action_pressed("down") && position.y < maxDistance) or (ShopMaster.time_to_shop == true && position.y < maxDistance):
+		position.y += moveSpeed * delta
