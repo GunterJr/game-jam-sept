@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" uid="uid://cxv26wvih55bk" path="res://board/scripts/PachinkoBall.gd" id="1_41u45"]
 [ext_resource type="Texture2D" uid="uid://d2kgw5q8x0ix1" path="res://board/sprites/Sprite-0002.png" id="2_4t11a"]
+[ext_resource type="AudioStream" uid="uid://88avddecm8bn" path="res://board/sounds/hit.wav" id="3_nf2gu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8l818"]
 bounce = 0.4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qdft7"]
 radius = 7.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nvqvl"]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("3_nf2gu")
 
 [node name="ball" type="RigidBody2D" unique_id=276826785]
 collision_layer = 2
@@ -25,5 +31,8 @@ texture_filter = 1
 texture = ExtResource("2_4t11a")
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="." unique_id=1242191576]
+stream = SubResource("AudioStreamRandomizer_nvqvl")
+volume_db = -10.839
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

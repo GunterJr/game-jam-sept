@@ -15,8 +15,7 @@ func start() -> void:
 	match day:
 		1:
 			print("Start day 1")
-			dialogMgr.json_path = "res://dialogue/strings/day1/start.json"
-			dialogMgr.char_hide_override = true
+			dialogMgr.json_path = "res://dialogue/strings/part1-script.json"
 			await dialogMgr.load_dialog()
 			board = preload("res://board/scenes/board.tscn").instantiate()
 			add_child(board)
@@ -47,10 +46,10 @@ func start() -> void:
 		_:
 			pass
 
-func new_day(ballsLeft: int) -> void:
+func new_day(ballsLeft: int) -> void: #stupid
 	board.queue_free()
 	balls += ballsLeft
-	dialogMgr.json_path = "res://dialogue/strings/day1/end.json"
+	dialogMgr.json_path = "res://dialogue/strings/part1.5-script.json"
 	await dialogMgr.load_dialog()
 	day += 1
 	start()

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://33n2kjhmvpnu" path="res://icon.svg" id="4_nvx4c"]
 [ext_resource type="Script" uid="uid://ctu88ql1rnepp" path="res://shop_ui/shop_button.gd" id="5_obxmp"]
 [ext_resource type="Script" uid="uid://bthu23pcsmbfl" path="res://shop_ui/exit_button.gd" id="6_kd4uc"]
+[ext_resource type="Script" uid="uid://vuia8058pvd7" path="res://shop_ui/autobutton.gd" id="6_kmkkm"]
 
 [node name="shop" type="Control" unique_id=1251339410]
 layout_mode = 3
@@ -108,6 +109,14 @@ heavinessModifier = 1000.0
 scoreModifier = 3
 switchShop = NodePath("../../..")
 
+[node name="Button5" type="Button" parent="shop_master/GridContainer" unique_id=693325108 node_paths=PackedStringArray("switchShop")]
+layout_mode = 2
+text = "AUTODROPPER
+Cost: 1000 Balls"
+script = ExtResource("6_kmkkm")
+cost = 1000
+switchShop = NodePath("../../..")
+
 [node name="Exit_Button" type="Button" parent="shop_master" unique_id=435816980]
 offset_left = 172.28845
 offset_top = 344.28076
@@ -123,4 +132,5 @@ script = ExtResource("6_kd4uc")
 [connection signal="button_down" from="shop_master/GridContainer/Button2" to="shop_master/GridContainer/Button2" method="_on_button_down"]
 [connection signal="button_down" from="shop_master/GridContainer/Button3" to="shop_master/GridContainer/Button3" method="_on_button_down"]
 [connection signal="button_down" from="shop_master/GridContainer/Button4" to="shop_master/GridContainer/Button4" method="_on_button_down"]
+[connection signal="button_down" from="shop_master/GridContainer/Button5" to="shop_master/GridContainer/Button5" method="_on_button_down"]
 [connection signal="button_down" from="shop_master/Exit_Button" to="shop_master/Exit_Button" method="_on_button_down"]

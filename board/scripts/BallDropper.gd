@@ -12,6 +12,7 @@ var time = 0
 var isBallActive: int = 0
 
 var drinks: Array[powerup]
+var auto: bool = false
 
 func _ready() -> void:
 	%Music.play()
@@ -20,6 +21,10 @@ func _process(delta: float) -> void:
 	time += delta
 	position = Vector2(sin(time) * oscAmount, dropHeight)
 	$"../CameraController/BallCount".text = "Balls: " + str(pachinkoBallsCount)
+	var input = InputEventAction.new()
+	input.action = "drop_ball"
+	input.pressed = true
+	if auto: Input.parse_input_event(input)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("drop_ball") && pachinkoBallsCount > 0 && ShopMaster.time_to_shop == false:
@@ -27,10 +32,11 @@ func _input(event: InputEvent) -> void:
 		get_parent().add_child(ball)
 		ball.ballDropper = self
 		ball.position = position
+		$DropSound.play()
 		
 		# apply powerups
 		for drink in drinks:
-			if drink.turnsLeft == 0: break
+			if drink.turnsLeft == 0: pass
 			(ball as RigidBody2D).physics_material_override.bounce += drink.bouncinessModifier;
 			(ball as RigidBody2D).mass += drink.heavinessModifier;
 			drink.turnsLeft -= 1;

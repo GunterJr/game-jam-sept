@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://wjccowlxq7fk" path="res://board/scripts/PachinkoBowl.gd" id="6_v32la"]
 [ext_resource type="PackedScene" uid="uid://817ldsc8kdku" path="res://board/scenes/peg.tscn" id="6_v174u"]
 [ext_resource type="Texture2D" uid="uid://bl8jiejdlibr0" path="res://board/sprites/Sprite-0003.png" id="7_1t3xs"]
+[ext_resource type="AudioStream" uid="uid://d1wm5usse444a" path="res://board/sounds/drop.wav" id="7_thho2"]
 [ext_resource type="Texture2D" uid="uid://b5npaex5fyhvb" path="res://board/sprites/arrow.png" id="10_bp0hc"]
 [ext_resource type="PackedScene" uid="uid://bfsf65qwtdrf0" path="res://shop_ui/shop.tscn" id="11_v32la"]
 [ext_resource type="AudioStream" uid="uid://sq53qkicsaks" path="res://board/sounds/Plinksomthing.mp3" id="12_3dy48"]
@@ -101,6 +102,9 @@ z_index = -1
 texture_filter = 1
 position = Vector2(0, 2)
 texture = ExtResource("4_v174u")
+
+[node name="DropSound" type="AudioStreamPlayer2D" parent="BallDropper" unique_id=675971144]
+stream = ExtResource("7_thho2")
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=547656392]
 
@@ -355,6 +359,7 @@ texture = SubResource("GradientTexture2D_qdft7")
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=894294004]
 unique_name_in_owner = true
 stream = ExtResource("12_3dy48")
+bus = &"Music"
 
 [connection signal="button_down" from="CameraController/CashOut" to="CameraController/CashOut" method="_on_button_down"]
 [connection signal="body_entered" from="Hole" to="Hole" method="_on_body_entered"]

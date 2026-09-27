@@ -19,8 +19,16 @@ func _process(delta):
 		#print(str(ShopMaster.time_to_shop))
 
 func shop_button_pressed(name: String, cost: int, turnsLeft: int, bouncinessModifier: float, heavinessModifier: float, scoreModifier: int):
-	if ballDropper.pachinkoBallsCount < cost: return
-	print("not enough money ")
+	if ballDropper.pachinkoBallsCount < cost: 
+		print("not enough money ")
+		return
 	ballDropper.addPowerup(turnsLeft, bouncinessModifier, heavinessModifier, scoreModifier);
 	ballDropper.pachinkoBallsCount -= cost
 	ShopMaster.shop_button_pressed(name, cost);
+
+func auto_button_engage(cost: int) -> void:
+	if ballDropper.pachinkoBallsCount < cost: 
+		print("not enough money ")
+		return
+	print("engage AUTO")
+	ballDropper.auto = true

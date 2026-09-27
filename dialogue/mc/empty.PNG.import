@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2ky43q66cfwo"
-path="res://.godot/imported/broker.png-b6d17eca0fba90e5504728310eab66b4.ctex"
+uid="uid://c06bpj2lbm1q8"
+path="res://.godot/imported/empty.PNG-306936dd38ce35ae8bcd26f42aabac7d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialogue/broker.png"
-dest_files=["res://.godot/imported/broker.png-b6d17eca0fba90e5504728310eab66b4.ctex"]
+source_file="res://dialogue/mc/empty.PNG"
+dest_files=["res://.godot/imported/empty.PNG-306936dd38ce35ae8bcd26f42aabac7d.ctex"]
 
 [params]
 

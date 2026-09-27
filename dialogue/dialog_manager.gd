@@ -5,6 +5,7 @@ extends Node
 
 @export_file_path var json_path: String
 @export var character_textures: Array[Texture2D]
+@export var mc_expressions: Array[Texture2D]
 
 @export_category("Text Speeds")
 @export var char_wait_seconds: float = 0.02
@@ -12,6 +13,7 @@ extends Node
 
 var json_out: Array
 var char_hide_override: bool = false
+var curr_expression: int = 0
 
 @onready var textbox: RichTextLabel = %Textbox
 @onready var panel: PanelContainer = $Panel
@@ -20,6 +22,8 @@ var char_hide_override: bool = false
 @onready var blipper: AudioStreamPlayer = $Blipper
 
 enum Characters {MC, BROKER, BUM}
+
+enum MCExpression {DEFAULT, IMPATIENT, SCARED, EMPTY, BROKEN}
 
 ## Parse a JSON file (convo) and call print_dialog on each dictionary
 func load_dialog() -> void:
@@ -41,30 +45,30 @@ func load_dialog() -> void:
 			" at line ", json.get_error_line())
 		return
 
-	for dict: Dictionary in json_out:
+	for dict: Dictionary in json_out:		
 		if dict.get("hide_mode") != null:
 			char_hide_override = dict.get("hide_mode")
+		if dict.get("expression") != null:
+			curr_expression = dict.get("expression")
 		await print_dialog(dict.get("text"), dict.get("name"))
 
 	panel.visible = false
 	portrait.visible = false
 
 ## Animate the text onto the textbox and wait for user input
+## expression is not passed as an argument!!!
 func print_dialog(dialog: String, char_name: String) -> void:
 	panel.visible = true
-	portrait.visible = !char_hide_override
+	portrait.visible = true
 
 	textbox.visible_characters = 0
 	textbox.text = dialog
 	char_name_box.text = char_name
 
-	if char_name == "MC":
-		portrait.texture = character_textures[Characters.MC]
-	elif char_name == "Broker":
-		portrait.texture = character_textures[Characters.BROKER]
-	elif char_name == "Bum":
-		pass # broken because no sprites
-		#portrait.texture = character_textures[Characters.BUM]
+	if char_name == "":
+		portrait.visible = false
+	elif char_name == "Maneki":
+		portrait.texture = mc_expressions[curr_expression]
 	else:
 		portrait.visible = false
 
