@@ -9,15 +9,18 @@ signal out_of_balls()
 
 var time = 0
 @export var pachinkoBallsCount = 5
-var isBallActive: bool = false
+var isBallActive: int = 0
 
 var drinks: Array[powerup]
+
+func _ready() -> void:
+	%Music.play()
 
 func _process(delta: float) -> void:
 	time += delta
 	position = Vector2(sin(time) * oscAmount, dropHeight)
 	$"../CameraController/BallCount".text = "Balls: " + str(pachinkoBallsCount)
-	if(pachinkoBallsCount == 0 && !isBallActive):
+	if(pachinkoBallsCount == 0 && isBallActive == 0):
 		out_of_balls.emit();
 
 func _input(event: InputEvent) -> void:
@@ -33,11 +36,11 @@ func _input(event: InputEvent) -> void:
 			(ball as RigidBody2D).mass += drink.heavinessModifier;
 			drink.turnsLeft -= 1;
 		
-		isBallActive = true
+		isBallActive += 1
 		pachinkoBallsCount -= 1
 
 func ball_not_active() -> void:
-	isBallActive = false
+	isBallActive -= 1
 
 func add_ball_count(count: int) -> void:
 	var scoreMult = 1

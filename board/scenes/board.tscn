@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bl8jiejdlibr0" path="res://board/sprites/Sprite-0003.png" id="7_1t3xs"]
 [ext_resource type="Texture2D" uid="uid://b5npaex5fyhvb" path="res://board/sprites/arrow.png" id="10_bp0hc"]
 [ext_resource type="PackedScene" uid="uid://bfsf65qwtdrf0" path="res://shop_ui/shop.tscn" id="11_v32la"]
+[ext_resource type="AudioStream" uid="uid://sq53qkicsaks" path="res://board/sounds/Plinksomthing.mp3" id="12_3dy48"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdft7"]
 size = Vector2(31, 302)
@@ -341,5 +342,9 @@ offset_top = -146.0
 offset_right = 143.0
 offset_bottom = 169.0
 texture = SubResource("GradientTexture2D_qdft7")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=894294004]
+unique_name_in_owner = true
+stream = ExtResource("12_3dy48")
 
 [connection signal="body_entered" from="Hole" to="Hole" method="_on_body_entered"]
