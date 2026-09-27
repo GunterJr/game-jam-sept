@@ -17,6 +17,7 @@ var char_hide_override: bool = false
 @onready var panel: PanelContainer = $Panel
 @onready var char_name_box: Label = $Panel/MarginContainer/HBoxContainer/CharName
 @onready var portrait: TextureRect = $Portrait
+@onready var blipper: AudioStreamPlayer = $Blipper
 
 enum Characters {MC, BROKER, BUM}
 
@@ -71,6 +72,7 @@ func print_dialog(dialog: String, char_name: String) -> void:
 
 	for c in range(0, dialog.length()):
 		textbox.visible_characters += 1
+		blipper.play()
 		if Input.is_action_pressed("ui_accept") && textbox.visible_characters > 8: break
 		await get_tree().create_timer(char_wait_seconds).timeout
 

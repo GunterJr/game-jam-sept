@@ -4,10 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://qou0j0kptqjq" path="res://dialogue/mc.png" id="2_r82r3"]
 [ext_resource type="Texture2D" uid="uid://c2ky43q66cfwo" path="res://dialogue/broker.png" id="3_ynsve"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_80v7d"]
+random_pitch = 1.0594631
+
 [node name="DialogManager" type="Node" unique_id=1840127325]
 script = ExtResource("1_tp7tx")
 json_path = "res://dialogue/strings/test.json"
 character_textures = Array[Texture2D]([ExtResource("2_r82r3"), ExtResource("3_ynsve")])
+char_wait_seconds = 0.04
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=920999922]
 custom_minimum_size = Vector2(360, 64)
@@ -63,3 +67,7 @@ offset_right = -120.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("2_r82r3")
+
+[node name="Blipper" type="AudioStreamPlayer" parent="." unique_id=787381118]
+stream = SubResource("AudioStreamRandomizer_80v7d")
+volume_db = -9.314

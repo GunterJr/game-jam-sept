@@ -14,6 +14,7 @@ size = Vector2(3, 13.073755)
 radius = 4.0
 
 [node name="Bowl" type="StaticBody2D" unique_id=283252032 node_paths=PackedStringArray("area2D")]
+collision_mask = 3
 script = ExtResource("2_dy846")
 area2D = NodePath("Hole")
 
@@ -45,6 +46,7 @@ position = Vector2(0, 2)
 texture = ExtResource("4_ks8vn")
 
 [node name="Hole" type="Area2D" parent="." unique_id=1771485590]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hole" unique_id=1834116306]
 position = Vector2(0, 2)

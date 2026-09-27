@@ -4,6 +4,8 @@ class_name PachinkoBall
 @export var fallingGravity: float
 var ballDropper : BallDropper
 
+@onready var hit: AudioStreamPlayer2D = $Hit
+
 var isInHole: bool = false
 var holePosition: Vector2
 
@@ -21,3 +23,6 @@ func _process(delta: float) -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_PREDELETE:
 		ballDropper.ball_not_active()
+
+func _on_body_entered(body: Node) -> void:
+	hit.play()

@@ -10,7 +10,10 @@ bounce = 0.4
 radius = 7.0
 
 [node name="ball" type="RigidBody2D" unique_id=276826785]
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_8l818")
+contact_monitor = true
+max_contacts_reported = 2
 script = ExtResource("1_41u45")
 fallingGravity = 0.8
 
@@ -20,3 +23,7 @@ shape = SubResource("CircleShape2D_qdft7")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1217201562]
 texture_filter = 1
 texture = ExtResource("2_4t11a")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="." unique_id=1242191576]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

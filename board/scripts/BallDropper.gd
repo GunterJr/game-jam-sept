@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		out_of_balls.emit();
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("drop_ball") && pachinkoBallsCount > 0 && !isBallActive && ShopMaster.time_to_shop == false:
+	if event.is_action_pressed("drop_ball") && pachinkoBallsCount > 0 && ShopMaster.time_to_shop == false:
 		var ball = pachinkoBall.instantiate();
 		get_parent().add_child(ball)
 		ball.ballDropper = self
