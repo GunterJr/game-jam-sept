@@ -43,7 +43,6 @@ func load_dialog() -> void:
 	for dict: Dictionary in json_out:
 		if dict.get("hide_mode") != null:
 			char_hide_override = dict.get("hide_mode")
-			print(char_hide_override)
 		await print_dialog(dict.get("text"), dict.get("name"))
 
 	panel.visible = false
@@ -70,8 +69,10 @@ func print_dialog(dialog: String, char_name: String) -> void:
 
 	for c in range(0, dialog.length()):
 		textbox.visible_characters += 1
+		# if Input.is_action_just_pressed("ui_accept"): break
 		await get_tree().create_timer(char_wait_seconds).timeout
 
+	textbox.visible_characters = -1
 	# await get_tree().create_timer(line_wait_seconds).timeout
 	while !Input.is_action_just_pressed("ui_accept"):
 		await get_tree().process_frame

@@ -1,6 +1,8 @@
 extends Node2D
 class_name BallDropper
 
+signal out_of_balls()
+
 @export var oscAmount: float
 @export var dropHeight: float
 @export var pachinkoBall: PackedScene
@@ -20,7 +22,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("drop_ball") && pachinkoBallsCount > 0 && !isBallActive && ShopMaster.time_to_shop == false:
 		pachinkoBallsCount -= 1
 		var ball = pachinkoBall.instantiate();
-		get_tree().root.add_child(ball)
+		get_parent().add_child(ball)
 		ball.ballDropper = self
 		ball.position = position
 		

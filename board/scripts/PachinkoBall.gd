@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 		global_position = global_position.lerp(holePosition, 5 * delta)
 		$Sprite2D.scale = $Sprite2D.scale.lerp(Vector2.ZERO, 5 * delta)
 		if ($Sprite2D.scale.is_equal_approx(Vector2.ZERO) or $Sprite2D.scale.length() < 0.01):
+			ballDropper.out_of_balls.emit()
 			queue_free()
 
 func _notification(what: int) -> void:
