@@ -7,10 +7,11 @@ extends Node
 @export var character_textures: Array[Texture2D]
 
 @export_category("Text Speeds")
-@export var char_wait_seconds: float = 0.1
+@export var char_wait_seconds: float = 0.02
 # @export var line_wait_seconds: float = 1.0
 
 var json_out: Array
+var char_hide_override: bool = false
 
 @onready var textbox: RichTextLabel = %Textbox
 @onready var panel: PanelContainer = $Panel
@@ -40,6 +41,9 @@ func load_dialog() -> void:
 		return
 
 	for dict: Dictionary in json_out:
+		if dict.get("hide_mode") != null:
+			char_hide_override = dict.get("hide_mode")
+			print(char_hide_override)
 		await print_dialog(dict.get("text"), dict.get("name"))
 
 	panel.visible = false
@@ -48,13 +52,11 @@ func load_dialog() -> void:
 ## Animate the text onto the textbox and wait for user input
 func print_dialog(dialog: String, char_name: String) -> void:
 	panel.visible = true
-	portrait.visible = true
+	portrait.visible = !char_hide_override
 
 	textbox.visible_characters = 0
 	textbox.text = dialog
 	char_name_box.text = char_name
-
-	assert(char_name == "MC" || char_name == "Broker" || char_name == "Bum")
 
 	if char_name == "MC":
 		portrait.texture = character_textures[Characters.MC]
@@ -62,7 +64,8 @@ func print_dialog(dialog: String, char_name: String) -> void:
 		portrait.texture = character_textures[Characters.BROKER]
 	elif char_name == "Bum":
 		portrait.texture = character_textures[Characters.BUM]
-
+	else:
+		portrait.visible = false
 
 	for c in range(0, dialog.length()):
 		textbox.visible_characters += 1
@@ -71,7 +74,3 @@ func print_dialog(dialog: String, char_name: String) -> void:
 	# await get_tree().create_timer(line_wait_seconds).timeout
 	while !Input.is_action_just_pressed("ui_accept"):
 		await get_tree().process_frame
-
-# TODO: TTEMP
-func _ready() -> void:
-	load_dialog()

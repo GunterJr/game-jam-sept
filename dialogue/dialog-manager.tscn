@@ -10,7 +10,6 @@ json_path = "res://dialogue/strings/test.json"
 character_textures = Array[Texture2D]([ExtResource("2_r82r3"), ExtResource("3_ynsve")])
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=920999922]
-visible = false
 custom_minimum_size = Vector2(360, 64)
 anchors_preset = 7
 anchor_left = 0.5
@@ -34,7 +33,7 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 
 [node name="CharName" type="Label" parent="Panel/MarginContainer/HBoxContainer" unique_id=226064601]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 text = "Name"
 horizontal_alignment = 1
@@ -45,7 +44,7 @@ layout_mode = 2
 
 [node name="Textbox" type="RichTextLabel" parent="Panel/MarginContainer/HBoxContainer" unique_id=626011556]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 text = "text"
 scroll_active = false
