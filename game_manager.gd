@@ -71,8 +71,6 @@ func start() -> void:
 			board.get_node("BallDropper").pachinkoBallsCount = balls
 			if (board.get_node("BallDropper").pachinkoBallsCount == 0):
 				board.get_node("BallDropper").pachinkoBallsCount += 10
-			day += 1
-			start()
 		8:
 			get_tree().quit()
 
