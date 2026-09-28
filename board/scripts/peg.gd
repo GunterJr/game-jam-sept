@@ -15,7 +15,8 @@ func activated(body: Node2D):
 	sprite.region_rect.position.x = 16
 	pegMulti += .035
 	(body as PachinkoBall).mult += .035
-	await get_tree().create_timer(30.0).timeout
+	print(pegMulti)
+	await get_tree().create_timer(3.0).timeout
 	sprite.region_rect.position.x = 0
 	pegMulti -= .035
 	if body:
