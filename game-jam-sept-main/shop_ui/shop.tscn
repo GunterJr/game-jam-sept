@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bfsf65qwtdrf0"]
+
+[ext_resource type="Script" uid="uid://p0ff1knloqcf" path="res://shop_ui/switch_shop.gd" id="1_60jjf"]
+[ext_resource type="Script" uid="uid://cnl6ed6r8req7" path="res://shop_ui/shop_master.gd" id="2_kmkkm"]
+[ext_resource type="Texture2D" uid="uid://bmkcirdwuc26d" path="res://stock_assets/ipad.png" id="3_hs1fm"]
+[ext_resource type="Texture2D" uid="uid://33n2kjhmvpnu" path="res://icon.svg" id="4_nvx4c"]
+[ext_resource type="Script" uid="uid://ctu88ql1rnepp" path="res://shop_ui/shop_button.gd" id="5_obxmp"]
+[ext_resource type="Script" uid="uid://bthu23pcsmbfl" path="res://shop_ui/exit_button.gd" id="6_kd4uc"]
+
+[node name="shop" type="Control" unique_id=1251339410]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 670.0
+offset_bottom = 670.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_60jjf")
+shop_pos = 700.0
+down_pos = 2000.0
+
+[node name="shop_master" type="Node2D" parent="." unique_id=191175357]
+position = Vector2(553, -644)
+script = ExtResource("2_kmkkm")
+
+[node name="Ipad" type="Sprite2D" parent="shop_master" unique_id=1439552945]
+position = Vector2(-17.711548, 373.28076)
+scale = Vector2(0.39556196, 0.39785075)
+texture = ExtResource("3_hs1fm")
+
+[node name="Label" type="Label" parent="shop_master/Ipad" unique_id=185270897]
+offset_left = 174.43532
+offset_top = -590.67377
+offset_right = 881.4353
+offset_bottom = -365.67377
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 81
+text = "EVIL 
+GRUBHUB"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="shop_master/Ipad" unique_id=903586872]
+modulate = Color(0, 18.892157, 18.892157, 1)
+z_index = -1
+offset_left = -568.81104
+offset_top = -799.2948
+offset_right = -440.81104
+offset_bottom = -671.2948
+scale = Vector2(11.337576, 7.937275)
+texture = ExtResource("4_nvx4c")
+
+[node name="GridContainer" type="GridContainer" parent="shop_master" unique_id=1435198495]
+clip_contents = true
+offset_left = -205.71155
+offset_top = 119.28082
+offset_right = 166.28845
+offset_bottom = 491.28082
+scale = Vector2(0.7478538, 0.7478538)
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 100
+columns = 2
+
+[node name="Button" type="Button" parent="shop_master/GridContainer" unique_id=960232767 node_paths=PackedStringArray("switchShop")]
+layout_mode = 2
+icon = ExtResource("4_nvx4c")
+flat = true
+script = ExtResource("5_obxmp")
+cost = 200
+item_name = "Power up 1"
+button_focus = true
+turnsLeft = 5
+bouncinessModifier = 0.5
+switchShop = NodePath("../../..")
+
+[node name="Button2" type="Button" parent="shop_master/GridContainer" unique_id=1780586078 node_paths=PackedStringArray("switchShop")]
+layout_mode = 2
+icon = ExtResource("4_nvx4c")
+flat = true
+script = ExtResource("5_obxmp")
+cost = 300
+item_name = "Power up 2"
+heavinessModifier = 100.0
+switchShop = NodePath("../../..")
+
+[node name="Button3" type="Button" parent="shop_master/GridContainer" unique_id=1270082167 node_paths=PackedStringArray("switchShop")]
+layout_mode = 2
+icon = ExtResource("4_nvx4c")
+flat = true
+script = ExtResource("5_obxmp")
+cost = 150
+item_name = "Power up 3"
+heavinessModifier = -0.1
+switchShop = NodePath("../../..")
+
+[node name="Button4" type="Button" parent="shop_master/GridContainer" unique_id=1361552148 node_paths=PackedStringArray("switchShop")]
+layout_mode = 2
+icon = ExtResource("4_nvx4c")
+flat = true
+script = ExtResource("5_obxmp")
+cost = 500
+item_name = "Power up 4"
+scoreModifier = 2
+switchShop = NodePath("../../..")
+
+[node name="Exit_Button" type="Button" parent="shop_master" unique_id=435816980]
+offset_left = 172.28845
+offset_top = 344.28076
+offset_right = 379.28845
+offset_bottom = 480.28076
+scale = Vector2(0.5353715, 0.5353715)
+text = "EXIT
+(press B)"
+icon = ExtResource("4_nvx4c")
+script = ExtResource("6_kd4uc")
+
+[connection signal="button_down" from="shop_master/GridContainer/Button" to="shop_master/GridContainer/Button" method="_on_button_down"]
+[connection signal="button_down" from="shop_master/GridContainer/Button2" to="shop_master/GridContainer/Button2" method="_on_button_down"]
+[connection signal="button_down" from="shop_master/GridContainer/Button3" to="shop_master/GridContainer/Button3" method="_on_button_down"]
+[connection signal="button_down" from="shop_master/GridContainer/Button4" to="shop_master/GridContainer/Button4" method="_on_button_down"]
+[connection signal="button_down" from="shop_master/Exit_Button" to="shop_master/Exit_Button" method="_on_button_down"]

@@ -1,0 +1,328 @@
+[gd_scene format=3 uid="uid://xprsejn6e008"]
+
+[ext_resource type="Script" uid="uid://c16r7ngyr5bjt" path="res://board/scripts/CameraController.gd" id="1_cy7ac"]
+[ext_resource type="Script" uid="uid://d31k642v7cab" path="res://board/scripts/BallDropper.gd" id="2_3hiem"]
+[ext_resource type="PackedScene" uid="uid://dc77ep4i1jpjv" path="res://board/scenes/ball.tscn" id="3_v174u"]
+[ext_resource type="Texture2D" uid="uid://33n2kjhmvpnu" path="res://icon.svg" id="4_1t3xs"]
+[ext_resource type="Texture2D" uid="uid://qpo7qkl5gi86" path="res://board/sprites/ball-export.png" id="4_v174u"]
+[ext_resource type="PackedScene" uid="uid://c3nxjqhl4goiw" path="res://board/scenes/pachinko_bowl.tscn" id="5_cy7ac"]
+[ext_resource type="Script" uid="uid://wjccowlxq7fk" path="res://board/scripts/PachinkoBowl.gd" id="6_v32la"]
+[ext_resource type="PackedScene" uid="uid://817ldsc8kdku" path="res://board/scenes/peg.tscn" id="6_v174u"]
+[ext_resource type="Texture2D" uid="uid://bl8jiejdlibr0" path="res://board/sprites/Sprite-0003.png" id="7_1t3xs"]
+[ext_resource type="Texture2D" uid="uid://b5npaex5fyhvb" path="res://board/sprites/arrow.png" id="10_bp0hc"]
+[ext_resource type="PackedScene" uid="uid://bfsf65qwtdrf0" path="res://shop_ui/shop.tscn" id="11_v32la"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdft7"]
+size = Vector2(31, 302)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3hiem"]
+rough = true
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytma0"]
+size = Vector2(20, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqgjh"]
+size = Vector2(102.36226, 3)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rq8yp"]
+radius = 12.0
+
+[node name="Board" type="Node2D" unique_id=997364691]
+
+[node name="CameraController" type="Node2D" parent="." unique_id=1456488899]
+script = ExtResource("1_cy7ac")
+moveSpeed = 200.0
+maxDistance = 80.0
+
+[node name="BallCount" type="Label" parent="CameraController" unique_id=1143465803]
+z_index = 10
+offset_left = -112.0
+offset_top = -62.0
+offset_right = -72.0
+offset_bottom = -39.0
+scale = Vector2(0.32, 0.32)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 32
+
+[node name="UpArrow" type="Sprite2D" parent="CameraController" unique_id=1968491983]
+modulate = Color(1, 1, 1, 0.39215687)
+z_index = 2
+texture_filter = 1
+position = Vector2(121.5, -54.5)
+texture = ExtResource("10_bp0hc")
+
+[node name="DownArrow" type="Sprite2D" parent="CameraController" unique_id=156622]
+modulate = Color(1, 1, 1, 0.39215687)
+z_index = 2
+texture_filter = 1
+position = Vector2(122.5, 55.5)
+texture = ExtResource("10_bp0hc")
+flip_v = true
+
+[node name="Camera2D" type="Camera2D" parent="CameraController" unique_id=531195904]
+zoom = Vector2(5, 5)
+
+[node name="BallDropper" type="Node2D" parent="." unique_id=472102467]
+position = Vector2(0, -130)
+script = ExtResource("2_3hiem")
+oscAmount = 25.0
+dropHeight = -130.0
+pachinkoBall = ExtResource("3_v174u")
+pachinkoBallsCount = 10
+
+[node name="Hole2" type="Sprite2D" parent="BallDropper" unique_id=1767099367]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(0, 2)
+texture = ExtResource("4_v174u")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=547656392]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=265995599]
+position = Vector2(159, -5)
+rotation = 0.5235988
+shape = SubResource("RectangleShape2D_qdft7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1103344943]
+position = Vector2(-159, -5)
+rotation = -0.5235988
+shape = SubResource("RectangleShape2D_qdft7")
+
+[node name="Bowl" parent="." unique_id=283252032 instance=ExtResource("5_cy7ac")]
+position = Vector2(-60, -14)
+scoreAmount = 4
+
+[node name="Bowl2" parent="." unique_id=693668762 instance=ExtResource("5_cy7ac")]
+position = Vector2(60, -14)
+scoreAmount = 4
+
+[node name="Bowl3" parent="." unique_id=635544730 instance=ExtResource("5_cy7ac")]
+position = Vector2(0, 39)
+scoreAmount = 8
+
+[node name="Row1PegContainer" type="Node2D" parent="." unique_id=776917274]
+position = Vector2(0, -91)
+
+[node name="Peg" parent="Row1PegContainer" unique_id=1757053329 instance=ExtResource("6_v174u")]
+position = Vector2(16, 0)
+
+[node name="Peg2" parent="Row1PegContainer" unique_id=1396914999 instance=ExtResource("6_v174u")]
+position = Vector2(46, 0)
+
+[node name="Peg3" parent="Row1PegContainer" unique_id=1045065371 instance=ExtResource("6_v174u")]
+position = Vector2(76, 0)
+
+[node name="Peg4" parent="Row1PegContainer" unique_id=206024693 instance=ExtResource("6_v174u")]
+position = Vector2(-44, 0)
+
+[node name="Peg5" parent="Row1PegContainer" unique_id=115771351 instance=ExtResource("6_v174u")]
+position = Vector2(-74, 0)
+
+[node name="Peg6" parent="Row1PegContainer" unique_id=719067714 instance=ExtResource("6_v174u")]
+position = Vector2(-14, 0)
+
+[node name="Row2PegContainer" type="Node2D" parent="." unique_id=1425274289]
+position = Vector2(0, -63)
+
+[node name="Peg" parent="Row2PegContainer" unique_id=813754800 instance=ExtResource("6_v174u")]
+position = Vector2(25, 0)
+
+[node name="Peg2" parent="Row2PegContainer" unique_id=700125387 instance=ExtResource("6_v174u")]
+position = Vector2(61, 5)
+
+[node name="Peg3" parent="Row2PegContainer" unique_id=960920027 instance=ExtResource("6_v174u")]
+position = Vector2(91, -6)
+
+[node name="Peg4" parent="Row2PegContainer" unique_id=457835816 instance=ExtResource("6_v174u")]
+position = Vector2(-59, 5)
+
+[node name="Peg5" parent="Row2PegContainer" unique_id=1309539937 instance=ExtResource("6_v174u")]
+position = Vector2(-89, -6)
+
+[node name="Peg6" parent="Row2PegContainer" unique_id=63501323 instance=ExtResource("6_v174u")]
+position = Vector2(-23, 0)
+
+[node name="Row3PegContainer" type="Node2D" parent="." unique_id=661687725]
+position = Vector2(0, -63)
+
+[node name="Peg" parent="Row3PegContainer" unique_id=234509518 instance=ExtResource("6_v174u")]
+position = Vector2(48, 22)
+
+[node name="Peg2" parent="Row3PegContainer" unique_id=1258111073 instance=ExtResource("6_v174u")]
+position = Vector2(72, 17)
+
+[node name="Peg4" parent="Row3PegContainer" unique_id=627123308 instance=ExtResource("6_v174u")]
+position = Vector2(-46, 22)
+
+[node name="Peg5" parent="Row3PegContainer" unique_id=1392307550 instance=ExtResource("6_v174u")]
+position = Vector2(-69, 19)
+
+[node name="Peg6" parent="Row3PegContainer" unique_id=582441703 instance=ExtResource("6_v174u")]
+position = Vector2(0, 28)
+
+[node name="Row4PegContainer" type="Node2D" parent="." unique_id=1399877627]
+position = Vector2(0, -63)
+
+[node name="Peg" parent="Row4PegContainer" unique_id=472634229 instance=ExtResource("6_v174u")]
+position = Vector2(24, 47)
+
+[node name="Peg2" parent="Row4PegContainer" unique_id=177052909 instance=ExtResource("6_v174u")]
+position = Vector2(88, 47)
+
+[node name="Peg4" parent="Row4PegContainer" unique_id=714549521 instance=ExtResource("6_v174u")]
+position = Vector2(-24, 47)
+
+[node name="Peg5" parent="Row4PegContainer" unique_id=1380805194 instance=ExtResource("6_v174u")]
+position = Vector2(-88, 47)
+
+[node name="Row5PegContainer" type="Node2D" parent="." unique_id=2002211965]
+position = Vector2(0, -63)
+
+[node name="Peg" parent="Row5PegContainer" unique_id=1690066945 instance=ExtResource("6_v174u")]
+position = Vector2(0, 70)
+
+[node name="Peg2" parent="Row5PegContainer" unique_id=489601306 instance=ExtResource("6_v174u")]
+position = Vector2(13, 79)
+
+[node name="Peg3" parent="Row5PegContainer" unique_id=770890239 instance=ExtResource("6_v174u")]
+position = Vector2(-13, 79)
+
+[node name="Peg4" parent="Row5PegContainer" unique_id=1693469753 instance=ExtResource("6_v174u")]
+position = Vector2(-45, 75)
+
+[node name="Peg5" parent="Row5PegContainer" unique_id=1565520977 instance=ExtResource("6_v174u")]
+position = Vector2(-75, 72)
+
+[node name="Peg6" parent="Row5PegContainer" unique_id=1077437832 instance=ExtResource("6_v174u")]
+position = Vector2(-105, 72)
+
+[node name="Peg7" parent="Row5PegContainer" unique_id=2081926906 instance=ExtResource("6_v174u")]
+position = Vector2(45, 75)
+
+[node name="Peg8" parent="Row5PegContainer" unique_id=111915510 instance=ExtResource("6_v174u")]
+position = Vector2(75, 72)
+
+[node name="Peg9" parent="Row5PegContainer" unique_id=497925215 instance=ExtResource("6_v174u")]
+position = Vector2(105, 72)
+
+[node name="Row6PegContainer" type="Node2D" parent="." unique_id=244936292]
+position = Vector2(0, -63)
+
+[node name="Peg" parent="Row6PegContainer" unique_id=2123326063 instance=ExtResource("6_v174u")]
+position = Vector2(-28, 105)
+
+[node name="Peg2" parent="Row6PegContainer" unique_id=84766832 instance=ExtResource("6_v174u")]
+position = Vector2(-57, 100)
+
+[node name="Peg3" parent="Row6PegContainer" unique_id=847795509 instance=ExtResource("6_v174u")]
+position = Vector2(-90, 97)
+
+[node name="Peg4" parent="Row6PegContainer" unique_id=642821762 instance=ExtResource("6_v174u")]
+position = Vector2(28, 104)
+
+[node name="Peg5" parent="Row6PegContainer" unique_id=714428767 instance=ExtResource("6_v174u")]
+position = Vector2(57, 100)
+
+[node name="Peg6" parent="Row6PegContainer" unique_id=1014552906 instance=ExtResource("6_v174u")]
+position = Vector2(90, 97)
+
+[node name="Row7PegContainer" type="Node2D" parent="." unique_id=463280446]
+position = Vector2(0, -63)
+
+[node name="Peg" parent="Row7PegContainer" unique_id=1998679286 instance=ExtResource("6_v174u")]
+position = Vector2(-15, 130)
+
+[node name="Peg2" parent="Row7PegContainer" unique_id=962283002 instance=ExtResource("6_v174u")]
+position = Vector2(-45, 128)
+
+[node name="Peg3" parent="Row7PegContainer" unique_id=180492363 instance=ExtResource("6_v174u")]
+position = Vector2(-75, 122)
+
+[node name="Peg4" parent="Row7PegContainer" unique_id=1166784206 instance=ExtResource("6_v174u")]
+position = Vector2(15, 130)
+
+[node name="Peg5" parent="Row7PegContainer" unique_id=1635128543 instance=ExtResource("6_v174u")]
+position = Vector2(45, 127)
+
+[node name="Peg6" parent="Row7PegContainer" unique_id=113603561 instance=ExtResource("6_v174u")]
+position = Vector2(75, 122)
+
+[node name="OverflowBucket" type="StaticBody2D" parent="." unique_id=484323597]
+physics_material_override = SubResource("PhysicsMaterial_3hiem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OverflowBucket" unique_id=826418648]
+position = Vector2(0, 98)
+shape = SubResource("RectangleShape2D_ytma0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="OverflowBucket" unique_id=694887015]
+position = Vector2(-59.445526, 84.80882)
+rotation = 0.26179937
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_jqgjh")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="OverflowBucket" unique_id=2068449610]
+position = Vector2(59, 85.00001)
+rotation = -0.2617994
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_jqgjh")
+
+[node name="Sprite2D" type="Sprite2D" parent="OverflowBucket" unique_id=1902981266]
+visible = false
+position = Vector2(-2.842171e-14, 98)
+scale = Vector2(0.15624999, 0.023437506)
+texture = ExtResource("4_1t3xs")
+
+[node name="Sprite2D2" type="Sprite2D" parent="OverflowBucket" unique_id=82422982]
+visible = false
+position = Vector2(-59.618275, 84.38432)
+rotation = 0.2617994
+scale = Vector2(0.79712266, 0.023437506)
+texture = ExtResource("4_1t3xs")
+
+[node name="Sprite2D3" type="Sprite2D" parent="OverflowBucket" unique_id=1011349086]
+visible = false
+position = Vector2(59.19688, 84.60751)
+rotation = -0.2617994
+scale = Vector2(0.8081295, 0.023437506)
+texture = ExtResource("4_1t3xs")
+
+[node name="Bowl" type="Sprite2D" parent="OverflowBucket" unique_id=379883839]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, 99)
+scale = Vector2(7.1999965, 4)
+texture = ExtResource("7_1t3xs")
+
+[node name="Hole" type="Area2D" parent="." unique_id=35022782 node_paths=PackedStringArray("area2D")]
+position = Vector2(0, 90)
+script = ExtResource("6_v32la")
+area2D = NodePath(".")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hole" unique_id=1397342831]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_rq8yp")
+
+[node name="Hole2" type="Sprite2D" parent="Hole" unique_id=1220897872]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(0, -5)
+scale = Vector2(2, 2)
+texture = ExtResource("4_v174u")
+
+[node name="shop" parent="." unique_id=1251339410 node_paths=PackedStringArray("ballDropper") instance=ExtResource("11_v32la")]
+z_index = 12
+offset_left = -89.0
+offset_top = 171.0
+offset_right = -89.0
+offset_bottom = 171.0
+scale = Vector2(0.16, 0.16)
+shop_pos = 140.0
+down_pos = 350.0
+switch_speed = 4.0
+ballDropper = NodePath("../BallDropper")
+
+[connection signal="body_entered" from="Hole" to="Hole" method="_on_body_entered"]
