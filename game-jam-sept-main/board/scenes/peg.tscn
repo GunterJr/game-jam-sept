@@ -7,7 +7,6 @@
 radius = 7.0
 
 [node name="Peg" type="Area2D" unique_id=726609374 node_paths=PackedStringArray("sprite")]
-collision_mask = 3
 script = ExtResource("1_juk33")
 sprite = NodePath("CollisionShape2D/Sprite2D")
 
