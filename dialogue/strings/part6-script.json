@@ -1,16 +1,22 @@
+
+
 [
 	{
-		"name":"",
-		"text":"Behind the booth, Samejima was waiting for me like usual.",
-		"bgIndex": 0
+		"hide-mode":false,
+		"name":"Samejima",
+		"text":"Hey, lucky cat.",
+		"expression":"Smug",
+		"background":0
 	},
 	{
-		"name":"Samejima",
-		"text":"Hey, lucky cat."
+		"name":"",
+		"text":"Behind the booth, Samejima was waiting for me like usual."
 	},
 	{
 		"name":"Maneki",
-		"text":"Sorry, no time for small talk. Tell me how to get the jackpot."
+		"text":"Sorry, no time for small talk. Tell me how to get the jackpot.",
+		"expression":"Empty"
+
 	},
 	{
 		"name":"",
@@ -22,15 +28,18 @@
 	},
 	{
 		"name":"Maneki",
-		"text":"Um, but, how do I put this…? It’s a little hard for me to continue, as things are."
+		"text":"Um, but, how do I put this…? It’s a little hard for me to continue, as things are.",
+		"expression":"Default"
 	},
 	{
 		"name":"Maneki",
-		"text":"I think I– I just really [b]need[/b] that jackpot. So if you have any advice, or–"
+		"text":"I think I– I just really [b]need[/b] that jackpot. So if you have any advice, or–",
+		"expression":"Broken"
 	},
 	{
 		"name":"Maneki",
-		"text":"Actually, I think I’d better go ahead and go home."
+		"text":"Actually, I think I’d better go ahead and go home.",
+		"expression":"Happy"
 	},
 	{
 		"name":"",
@@ -38,7 +47,8 @@
 	},
 	{
 		"name":"Samejima",
-		"text":"Ahhh! Wait, wait, lucky cat"
+		"text":"Ahhh! Wait, wait, lucky cat.",
+		"expression":"Default"
 	},
 	{
 		"name":"",
@@ -50,15 +60,18 @@
 	},
 	{
 		"name":"Maneki",
-		"text":"You can?"
+		"text":"You can?",
+		"expression":"Default"
 	},
 	{
 		"name":"Samejima",
-		"text":"Here’s what we’ll do. Something a little… underneath the coral reef, yeah?"
+		"text":"Here’s what we’ll do. Something a little… underneath the coral reef, yeah?",
+		"expression":"Delighted"
 	},
 	{
 		"name":"Maneki",
-		"text":"Umm..."
+		"text":"Umm...",
+		"expression":"Nervous"
 	},
 	{
 		"name":"Samejima",
@@ -71,5 +84,10 @@
 	{
 		"name":"Samejima",
 		"text":"Well? How about it?"
+	},
+		{
+		"name":"Maneki",
+		"text":"Sounds perfect.",
+		"expression":"Happy"
 	}
 ]

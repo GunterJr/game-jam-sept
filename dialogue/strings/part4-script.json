@@ -1,24 +1,30 @@
+
+
 [
 	{
+		"hide-mode":true,
 		"name":"",
 		"text":"I needed to ask Samejima about the old woman.",
-		"bgIndex": 0
+		"background":0
 	},
 	{
 		"name":"",
 		"text":"Yes, I would ask him, and he would confirm what I already knew. And that’s when I would tell him I had to quit soon, for my health."
 	},
 	{
+		"hide-mode":false,
+		"name":"Samejima",
+		"text":"I knew you’d be back, lucky cat.",
+		"expression":"Smug"
+	},
+	{
 		"name":"",
 		"text":"Behind the booth stood Samejima, lazily twirling his hands."
 	},
 	{
-		"name":"Samejima",
-		"text":"I knew you’d be back, lucky cat."
-	},
-	{
 		"name":"Maneki",
-		"text":"Can I ask you some--"
+		"text":"Can I ask you some--",
+		"expression":"Nervous"
 	},
 	{
 		"name":"Samejima",
@@ -30,11 +36,14 @@
 	},
 	{
 		"name":"Maneki",
-		"text":"Oh– really?"
+		"text":"Oh– really?",
+		"expression":"Default"
+
 	},
 	{
 		"name":"Samejima",
-		"text":"Now, how can I help you?"
+		"text":"Now, how can I help you?",
+		"expression":"Delighted"
 	},
 	{
 		"name":"",
@@ -42,7 +51,8 @@
 	},
 	{
 		"name":"Maneki",
-		"text":"A-actually, it's nothing. I’ll check out the menu straight-away!"
+		"text":"A-actually, it's nothing. I’ll check out the menu straight-away!",
+		"expression":"Happy"
 	},
 	{
 		"name":"Maneki",
@@ -70,18 +80,30 @@
 	},
 	{
 		"name":"Samejima",
-		"text":"Enjoy yourself, now."
+		"text":"Enjoy yourself, now.",
+		"expression":"Default"
+	},
+	{
+		"name":"Maneki",
+		"text":"Thank you..."
+	},
+	{
+		"name":"Maneki",
+		"text":"..."
 	},
 	{
 		"name":"",
 		"text":"I knew I would go back to the parlor as soon as I left his gaze."
 	},
 	{
-		"name":"",
-		"text":"I knew I would play-- just a little bit more."
+		"name":"Maneki",
+		"text":"Just a little bit more...",
+		"expression":"Broken"
 	},
 	{
+		"hide-mode":true,
 		"name":"",
-		"text":"SOMETIME IN THE NIGHT."
+		"text":"SOMETIME IN THE NIGHT.",
+		"background":1
 	}
 ]

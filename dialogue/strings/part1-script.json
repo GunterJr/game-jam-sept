@@ -1,9 +1,11 @@
+
+
 [
 	{
 		"hide_mode":true,
 		"name":"",
 		"text":"THE FIRST DAY.",
-		"bgIndex": 2
+		"background":"Exterior"
 	},
 	{
 		"name":"",
@@ -11,7 +13,9 @@
 	},
 	{
 		"name":"",
-		"text":"But as I passed the threshold into the dizzying world of pachinko, none of that mattered anymore."
+		"text":"But as I passed the threshold into the dizzying world of pachinko, none of that mattered anymore.",
+		"background":"Interior",
+		"sfx":"door_opening"
 	},
 	{
 		"name":"",
@@ -25,24 +29,28 @@
 	},
 	{
 		"name":"Old Woman",
-		"text":"Heh. Never been to pachinko before, have you?"
+		"text":"Heh. Never been to pachinko before, have you?",
+		"expression":"Default"
 	},
 	{
 		"name":"Maneki",
 		"text":"Are you the manager? How do I play?",
-		"expression":"Nervous"
+		"expression":"Default"
 	},
 	{
 		"name":"Bum",
-		"text":"Nooooo! That was my entire salary, dammit! Guess it’s time to sell the house and divorce my wife. Hell, I’ll sell the kittens, too."
+		"text":"Nooooo! That was my entire salary, dammit! Guess it’s time to sell the house and divorce my wife. Hell, I’ll sell the kittens, too.",
+		"expression":"Intro"
 	},
 	{
 		"name":"Maneki",
-		"text":"Umm. Is he okay?"
+		"text":"Umm. Is he okay?",
+		"expression":"Nervous"
 	},
 	{
 		"name":"Old Woman",
-		"text":"Don’t pay him any mind. If you’re a lucky cat like me, then you have nothing to fear."
+		"text":"Don’t pay him any mind. If you’re a lucky one like me, then you have nothing to fear.",
+		"expression":"Arrogant"
 	},
 	{
 		"name":"Maneki",
@@ -50,22 +58,28 @@
 	},
 	{
 		"name":"Bum",
-		"text":"I heard that, you heartless feline! I may not have found the secret yet, but I know you’re cheating somehow."
+		"text":"I heard that, you heartless fowl! I may not have found the secret yet, but I know you’re cheating somehow.",
+		"expression":"Default"
 	},
 	{
 		"name":"Old Woman",
-		"text":"So, you don’t know how to play. Here. Have a go at my favorite game."
+		"text":"So, you don’t know how to play. Here. Have a go at my favorite game.",
+		"expression":"Default"
 	},
 	{
 		"name":"",
-		"text":"The old woman handed me a cup full of steel balls."
+		"text":"The old bird handed me a cup full of steel balls.",
+		"sfx":"heavy_rustle"
 	},
 	{
 		"name":"Maneki",
-		"text":"\"Waterfall\"..."
+		"text":"\"Waterfall\"...",
+		"expression":"Default"
 	},
 	{
+		"hide_mode":true,
 		"name":"",
-		"text":"I sat down at the machine and loaded the balls into the slot."
+		"text":"I sat down at the machine and loaded the balls into the slot.",
+		"sfx":"button_click"
 	}
 ]

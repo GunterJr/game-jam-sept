@@ -1,12 +1,15 @@
+
+
 [
 	{
 		"name":"",
 		"text":"[i]Brrring, brring![/i]",
-		"bgIndex": 1
+		"background":1
 	},
 	{
 		"name":"Maneki",
-		"text":"Hello? I can’t talk right now."
+		"text":"Hello? I can’t talk right now.",
+		"expression":"Default"
 	},
 	{
 		"name":"Wife",
@@ -14,7 +17,8 @@
 	},
 	{
 		"name":"Maneki",
-		"text":"Uhhh. Work?"
+		"text":"Uhhh. Work?",
+		"expression":"Happy"
 	},
 	{
 		"name":"Wife",
@@ -30,15 +34,12 @@
 	},
 	{
 		"name":"Maneki",
-		"text":"I’m– come on! "
+		"text":"I’m– come on!",
+		"expression":"Nervous"
 	},
 	{
 		"name":"Wife",
 		"text":"What’s all that clanging in the background?"
-	},
-	{
-		"name":"Wife",
-		"text":"..."
 	},
 	{
 		"name":"Wife",
@@ -58,11 +59,16 @@
 	},
 	{
 		"name":"Wife",
-		"text":"Can’t say I remember. Do you know her?"
+		"text":"Can’t say I remember. Did you know her?"
 	},
 	{
 		"name":"Wife",
 		"text": "Look, I just hope you’ll be safe. And please come home tonight..."
+	},
+	{
+		"name":"Maneki",
+		"text": "...",
+		"expression":"Empty"
 	},
 	{
 		"name":"Wife",
@@ -70,7 +76,8 @@
 	},
 	{
 		"name":"Maneki",
-		"text": "Sorry, I’ve gotta go."
+		"text": "Sorry, I’ve gotta go.",
+		"expression":"Happy"
 	},
 	{
 		"name":"",

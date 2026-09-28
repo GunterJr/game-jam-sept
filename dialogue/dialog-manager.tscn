@@ -14,6 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://wfrowrw3n4vw" path="res://dialogue/shark/LoanShark_Delighted.png" id="10_228es"]
 [ext_resource type="Texture2D" uid="uid://d1ghmwweqfiql" path="res://dialogue/shark/LoanShark_smug.png" id="11_r1sag"]
 [ext_resource type="Texture2D" uid="uid://r6gc62tlxph4" path="res://dialogue/bg/Alleyway.PNG" id="12_228es"]
+[ext_resource type="Texture2D" uid="uid://balw5cx33lm8" path="res://dialogue/oldlady/OldLady_default.png" id="15_asgdn"]
+[ext_resource type="Texture2D" uid="uid://us62ojmda3nr" path="res://dialogue/oldlady/OldLady_arrogant.png" id="16_2rfok"]
+[ext_resource type="Texture2D" uid="uid://b4pji27kpqp32" path="res://dialogue/bum/Bum_default.png" id="17_427bm"]
+[ext_resource type="Texture2D" uid="uid://bodo3jgqykvii" path="res://dialogue/bum/Bum_in the alley.png" id="18_d2232"]
+[ext_resource type="Texture2D" uid="uid://cvictnv6ugj8c" path="res://dialogue/bum/Bum_intro.png" id="19_skt7f"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_80v7d"]
 random_pitch = 1.0594631
@@ -24,6 +29,8 @@ json_path = "res://dialogue/strings/test.json"
 bg_textures = Array[Texture2D]([ExtResource("12_228es"), ExtResource("3_we3jn"), ExtResource("4_efrjk")])
 mc_expressions = Array[Texture2D]([ExtResource("2_640sx"), ExtResource("3_446fm"), ExtResource("4_fuxjh"), ExtResource("4_446fm"), ExtResource("6_kc3ay"), ExtResource("5_fuxjh"), ExtResource("6_f88ns")])
 shark_expressions = Array[Texture2D]([ExtResource("9_kc3ay"), ExtResource("10_228es"), ExtResource("11_r1sag")])
+oldlady_expressions = Array[Texture2D]([ExtResource("15_asgdn"), ExtResource("16_2rfok")])
+bum_expressions = Array[Texture2D]([ExtResource("17_427bm"), ExtResource("18_d2232"), ExtResource("19_skt7f")])
 char_wait_seconds = 0.04
 
 [node name="Portrait" type="TextureRect" parent="." unique_id=1047568725]

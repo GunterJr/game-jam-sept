@@ -1,10 +1,15 @@
+
+
 [
 	{
+		"hide-mode":false,
 		"name":"Maneki",
-		"text":"Thank you for showing me how to play. I had so much fun!"
+		"text":"Thank you for showing me how to play. I had so much fun!",
+		"expression":"Happy"
 	},
 	{
 		"name":"Old Woman",
-		"text":"It’s my pleasure, showing you little guppies the ocean. The best part is watching you get eaten up."
+		"text":"It’s my pleasure, showing you little guppies the ocean. The best part is watching you get eaten up.",
+		"expression":"Arrogant"
 	}
 ]

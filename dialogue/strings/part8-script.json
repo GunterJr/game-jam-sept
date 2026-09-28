@@ -1,20 +1,26 @@
+
+
 [
 	{
+		"hide-mode":true,
 		"name":"",
 		"text":"TIME TOO LATE.",
-		"bgIndex": 1
+		"background":1
 	},
 	{
 		"name":"",
 		"text":"Golden letters appeared on the screen, flashing and beaming. My reflection stared blankly at me from the glass."
 	},
 	{
+		"hide-mode":false,
 		"name":"Maneki",
-		"text":"\"Jackpot\"..."
+		"text":"\"Jackpot\"...",
+		"expression":"Empty"
 	},
 	{
 		"name":"Maneki",
-		"text":"Jackpot… jackpot, [i]jackpot[/i], [b]jackpot[/b]! Hahahaha!"
+		"text":"Jackpot… jackpot, [i]jackpot[/i], [b]jackpot[/b]! Hahahaha!",
+		"expression":"Broken"
 	},
 	{
 		"name":"",
@@ -22,11 +28,18 @@
 	},
 	{
 		"name":"Maneki",
-		"text":"Look, everybody! Jackpot! Now, if I can just– get it again, I can pay…!"
+		"text":"Look, everybody! Jackpot!",
+		"expression":"Panic1"
+	},
+	{
+		"name":"Maneki",
+		"text":"Now, if I can just– get it again, I can pay…!",
+		"expression":"Panic2"
 	},
 	{
 		"name":"",
-		"text":"Paws tapped on the screen."
+		"text":"Paws tapped on the screen.",
+		"sfx":"button_click"
 	},
 	{
 		"name":"",
@@ -54,6 +67,10 @@
 	},
 	{
 		"name":"",
-		"text":"Maneki turned toward the rabbit, his mouth moving on its own–"
+		"text":"Maneki turned toward the rabbit, his mouth moving on its own to speak..."
+	},
+	{
+		"name":"",
+		"text":"THE END."
 	}
 ]

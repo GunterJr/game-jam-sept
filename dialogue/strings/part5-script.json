@@ -1,23 +1,36 @@
+
+
 [
 	{
+		"hide-mode":true,
 		"name":"",
 		"text":"[i]Brrring, brring![/i]",
-		"bgIndex": 1
+		"background":1
 	},
 	{
-		"name":"",
-		"text":"I can’t pick up right now, I thought."
+		"hide-mode":false,
+		"name":"Maneki",
+		"text":"I can’t pick up right now...",
+		"expression":"Empty"
 	},
 	{
-		"name":"",
-		"text":"I’m making money. I’m helping this family. Most importantly, I’m having tons of fun!"
+		"name":"Maneki",
+		"text":"I’m making money. I’m helping this family.",
+		"expression":"Broken"
 	},
 	{
-		"name":"",
-		"text":"..."
+		"name":"Maneki",
+		"text":"Most importantly, I’m having tons of fun!",
+		"expression":"Happy"
 	},
 	{
-		"name":"",
-		"text":"I decided I’d call her back later."
+		"name":"Maneki",
+		"text":"...",
+		"expression":"Default"
+	},
+	{
+		"name":"Maneki",
+		"text":"I should call her back later...",
+		"expression":"Nervous"
 	}
 ]
