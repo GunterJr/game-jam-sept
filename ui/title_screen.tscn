@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cp550pum65dys"]
 
-[ext_resource type="Texture2D" uid="uid://33n2kjhmvpnu" path="res://icon.svg" id="1_7xhpk"]
+[ext_resource type="Texture2D" uid="uid://b7ffwowl0djh1" path="res://dialogue/bg/Pachinko_inside.PNG" id="1_qer0c"]
 [ext_resource type="Script" uid="uid://b4al1e810scp" path="res://ui/play_button.gd" id="2_bor1v"]
 [ext_resource type="Script" uid="uid://b1qeqdbtrn07x" path="res://ui/exit_button.gd" id="3_qer0c"]
 
@@ -13,13 +13,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=811047016]
-modulate = Color(0, 0, 18.892157, 1)
-layout_mode = 0
-offset_left = -87.37073
-offset_top = -49.0
-offset_right = 1223.1908
-offset_bottom = 686.0
-texture = ExtResource("1_7xhpk")
+self_modulate = Color(1, 1, 1, 0.41960785)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qer0c")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=19025284]
 layout_mode = 0
@@ -40,14 +41,20 @@ layout_mode = 2
 text = "EXIT"
 script = ExtResource("3_qer0c")
 
-[node name="Title" type="Label" parent="." unique_id=796309688]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=170620752]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 28.0
-offset_right = 270.0
-offset_bottom = 160.0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer" unique_id=304652880]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/Panel" unique_id=796309688]
+layout_mode = 2
 theme_override_font_sizes/font_size = 96
-text = "TITLE"
+text = "Waterfall"
 
 [connection signal="button_down" from="VBoxContainer/play_button" to="VBoxContainer/play_button" method="_on_button_down"]
 [connection signal="button_down" from="VBoxContainer/exit_button" to="VBoxContainer/exit_button" method="_on_button_down"]
