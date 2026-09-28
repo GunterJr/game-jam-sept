@@ -1,7 +1,8 @@
 [
 	{
 		"name":"",
-		"text":"ONE MONTH LATER."
+		"text":"ONE MONTH LATER.",
+		"bgIndex": 1
 	},
 	{
 		"name":"",
@@ -13,7 +14,8 @@
 	},
 	{
 		"name":"",
-		"text":"I passed through a chilly alleyway, dotted by neon signs. My ears twitched at the cold."
+		"text":"I passed through a chilly alleyway, dotted by neon signs. My ears twitched at the cold.",
+		"bgIndex": 0
 	},
 	{
 		"name":"",

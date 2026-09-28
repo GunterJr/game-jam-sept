@@ -5,6 +5,7 @@ extends Node
 
 @export_file_path var json_path: String
 @export var character_textures: Array[Texture2D]
+@export var bg_textures: Array[Texture2D]
 @export var mc_expressions: Array[Texture2D]
 @export var shark_expressions: Array[Texture2D]
 
@@ -21,6 +22,7 @@ var curr_expression: int = 0
 @onready var char_name_box: Label = $Panel/MarginContainer/HBoxContainer/CharName
 @onready var portrait: TextureRect = $Portrait
 @onready var blipper: AudioStreamPlayer = $Blipper
+@onready var bg: TextureRect = $BG
 
 enum Characters {MC, BROKER, BUM}
 var expression_dict: Dictionary = {
@@ -67,6 +69,8 @@ func load_dialog() -> void:
 				curr_expression = expression_dict.get(exp_desc)
 			if dict.get("name") == "Samejima" || dict.get("name") == "Attendant":
 				curr_expression = expression_dict_shark.get(exp_desc)
+		if dict.get("bgIndex") != null:
+			bg.texture = bg_textures[dict.get("bgIndex")]
 		await print_dialog(dict.get("text"), dict.get("name"))
 
 	panel.visible = false

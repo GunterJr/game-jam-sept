@@ -1,7 +1,8 @@
 [
 	{
 		"name":"",
-		"text":"TIME TOO LATE."
+		"text":"TIME TOO LATE.",
+		"bgIndex": 1
 	},
 	{
 		"name":"",

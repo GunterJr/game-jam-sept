@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://ctxcwosjgp2rc" path="res://dialogue/dialog_manager.gd" id="1_tp7tx"]
 [ext_resource type="Texture2D" uid="uid://dk0hoty404yh2" path="res://dialogue/mc/default.PNG" id="2_640sx"]
 [ext_resource type="Texture2D" uid="uid://bs0k53tldepeh" path="res://dialogue/mc/happy.PNG" id="3_446fm"]
+[ext_resource type="Texture2D" uid="uid://b7ffwowl0djh1" path="res://dialogue/bg/Pachinko_inside.PNG" id="3_we3jn"]
 [ext_resource type="Texture2D" uid="uid://c0o4j7f6pxem2" path="res://dialogue/mc/scared.PNG" id="4_446fm"]
+[ext_resource type="Texture2D" uid="uid://bnpnj0fo83myq" path="res://dialogue/bg/Pachinko_outside.PNG" id="4_efrjk"]
 [ext_resource type="Texture2D" uid="uid://ccvo3skg472jo" path="res://dialogue/mc/nervous.PNG" id="4_fuxjh"]
 [ext_resource type="Texture2D" uid="uid://c06bpj2lbm1q8" path="res://dialogue/mc/empty.PNG" id="5_fuxjh"]
 [ext_resource type="Texture2D" uid="uid://bp382bmoj7cww" path="res://dialogue/mc/broken.PNG" id="6_f88ns"]
@@ -11,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://wnfenh8ai45f" path="res://dialogue/shark/LoanShark_default.png" id="9_kc3ay"]
 [ext_resource type="Texture2D" uid="uid://wfrowrw3n4vw" path="res://dialogue/shark/LoanShark_Delighted.png" id="10_228es"]
 [ext_resource type="Texture2D" uid="uid://d1ghmwweqfiql" path="res://dialogue/shark/LoanShark_smug.png" id="11_r1sag"]
+[ext_resource type="Texture2D" uid="uid://r6gc62tlxph4" path="res://dialogue/bg/Alleyway.PNG" id="12_228es"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_80v7d"]
 random_pitch = 1.0594631
@@ -18,6 +21,7 @@ random_pitch = 1.0594631
 [node name="DialogManager" type="Node" unique_id=1840127325]
 script = ExtResource("1_tp7tx")
 json_path = "res://dialogue/strings/test.json"
+bg_textures = Array[Texture2D]([ExtResource("12_228es"), ExtResource("3_we3jn"), ExtResource("4_efrjk")])
 mc_expressions = Array[Texture2D]([ExtResource("2_640sx"), ExtResource("3_446fm"), ExtResource("4_fuxjh"), ExtResource("4_446fm"), ExtResource("6_kc3ay"), ExtResource("5_fuxjh"), ExtResource("6_f88ns")])
 shark_expressions = Array[Texture2D]([ExtResource("9_kc3ay"), ExtResource("10_228es"), ExtResource("11_r1sag")])
 char_wait_seconds = 0.04
@@ -76,6 +80,13 @@ layout_mode = 2
 bbcode_enabled = true
 text = "text"
 scroll_active = false
+
+[node name="BG" type="TextureRect" parent="." unique_id=2009024195]
+z_index = -10
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_efrjk")
 
 [node name="Blipper" type="AudioStreamPlayer" parent="." unique_id=787381118]
 stream = SubResource("AudioStreamRandomizer_80v7d")

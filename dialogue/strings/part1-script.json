@@ -2,7 +2,8 @@
 	{
 		"hide_mode":true,
 		"name":"",
-		"text":"THE FIRST DAY."
+		"text":"THE FIRST DAY.",
+		"bgIndex": 2
 	},
 	{
 		"name":"",

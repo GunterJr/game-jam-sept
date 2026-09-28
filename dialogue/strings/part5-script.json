@@ -1,7 +1,8 @@
 [
 	{
 		"name":"",
-		"text":"[i]Brrring, brring![/i]"
+		"text":"[i]Brrring, brring![/i]",
+		"bgIndex": 1
 	},
 	{
 		"name":"",

@@ -1,7 +1,8 @@
 [
 	{
 		"name":"",
-		"text":"Behind the booth, Samejima was waiting for me like usual."
+		"text":"Behind the booth, Samejima was waiting for me like usual.",
+		"bgIndex": 0
 	},
 	{
 		"name":"Samejima",

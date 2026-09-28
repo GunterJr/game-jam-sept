@@ -1,7 +1,8 @@
 [
 	{
 		"name":"",
-		"text":"I gathered up the balls and redeemed them at the counter."
+		"text":"I gathered up the balls and redeemed them at the counter.",
+		"bgIndex": 1
 	},
 	{
 		"name":"Maneki",
