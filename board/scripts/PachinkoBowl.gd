@@ -8,4 +8,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if is_instance_valid(body) && area2D.overlaps_body(body):
 		(body as PachinkoBall).holePosition = position
 		(body as PachinkoBall).isInHole = true
-		(body as PachinkoBall).ballDropper.add_ball_count(scoreAmount)
+		(body as PachinkoBall).ballDropper.add_ball_count(scoreAmount * body.mult)

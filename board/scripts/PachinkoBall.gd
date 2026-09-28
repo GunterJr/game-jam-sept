@@ -7,6 +7,8 @@ var ballDropper : BallDropper
 var isInHole: bool = false
 var holePosition: Vector2
 
+var mult: float = 1.0
+
 func _ready():
 	angular_velocity = randf_range(-5.0, 5.0)
 	gravity_scale = fallingGravity

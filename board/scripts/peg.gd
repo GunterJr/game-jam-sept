@@ -11,13 +11,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func activated():
+func activated(body: Node2D):
 	sprite.region_rect.position.x = 16
 	pegMulti += .035
+	(body as PachinkoBall).mult += .035
 	await get_tree().create_timer(30.0).timeout
 	sprite.region_rect.position.x = 0
-	pegMulti += .035
+	pegMulti -= .035
+	if body:
+		(body as PachinkoBall).mult -= .035
 
 
 func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	if body is PachinkoBall: activated()
+	if body is PachinkoBall: activated(body)
