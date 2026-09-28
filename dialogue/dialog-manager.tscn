@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://c06bpj2lbm1q8" path="res://dialogue/mc/empty.PNG" id="5_fuxjh"]
 [ext_resource type="Texture2D" uid="uid://bp382bmoj7cww" path="res://dialogue/mc/broken.PNG" id="6_f88ns"]
 [ext_resource type="Texture2D" uid="uid://pkyxnpj6n66r" path="res://dialogue/mc/MC_panic2.PNG" id="6_kc3ay"]
+[ext_resource type="Texture2D" uid="uid://wnfenh8ai45f" path="res://dialogue/shark/LoanShark_default.png" id="9_kc3ay"]
+[ext_resource type="Texture2D" uid="uid://wfrowrw3n4vw" path="res://dialogue/shark/LoanShark_Delighted.png" id="10_228es"]
+[ext_resource type="Texture2D" uid="uid://d1ghmwweqfiql" path="res://dialogue/shark/LoanShark_smug.png" id="11_r1sag"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_80v7d"]
 random_pitch = 1.0594631
@@ -16,6 +19,7 @@ random_pitch = 1.0594631
 script = ExtResource("1_tp7tx")
 json_path = "res://dialogue/strings/test.json"
 mc_expressions = Array[Texture2D]([ExtResource("2_640sx"), ExtResource("3_446fm"), ExtResource("4_fuxjh"), ExtResource("4_446fm"), ExtResource("6_kc3ay"), ExtResource("5_fuxjh"), ExtResource("6_f88ns")])
+shark_expressions = Array[Texture2D]([ExtResource("9_kc3ay"), ExtResource("10_228es"), ExtResource("11_r1sag")])
 char_wait_seconds = 0.04
 
 [node name="Portrait" type="TextureRect" parent="." unique_id=1047568725]

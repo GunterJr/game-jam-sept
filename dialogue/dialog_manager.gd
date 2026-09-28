@@ -6,6 +6,7 @@ extends Node
 @export_file_path var json_path: String
 @export var character_textures: Array[Texture2D]
 @export var mc_expressions: Array[Texture2D]
+@export var shark_expressions: Array[Texture2D]
 
 @export_category("Text Speeds")
 @export var char_wait_seconds: float = 0.02
@@ -22,7 +23,6 @@ var curr_expression: int = 0
 @onready var blipper: AudioStreamPlayer = $Blipper
 
 enum Characters {MC, BROKER, BUM}
-
 var expression_dict: Dictionary = {
 	"Default" : 0,
 	"Happy"   : 1,
@@ -31,6 +31,11 @@ var expression_dict: Dictionary = {
 	"Panic2"  : 4,
 	"Empty"   : 5,
 	"Broken"  : 6,
+}
+var expression_dict_shark: Dictionary = {
+	"Default" : 0,
+	"Delighted"   : 1,
+	"Smug" : 2
 }
 
 ## Parse a JSON file (convo) and call print_dialog on each dictionary
@@ -58,7 +63,10 @@ func load_dialog() -> void:
 			char_hide_override = dict.get("hide_mode")
 		if dict.get("expression") != null:
 			var exp_desc: String = dict.get("expression")
-			curr_expression = expression_dict.get(exp_desc)
+			if dict.get("name") == "Maneki":
+				curr_expression = expression_dict.get(exp_desc)
+			if dict.get("name") == "Samejima" || dict.get("name") == "Attendant":
+				curr_expression = expression_dict_shark.get(exp_desc)
 		await print_dialog(dict.get("text"), dict.get("name"))
 
 	panel.visible = false
@@ -78,6 +86,8 @@ func print_dialog(dialog: String, char_name: String) -> void:
 		portrait.visible = false
 	elif char_name == "Maneki":
 		portrait.texture = mc_expressions[curr_expression]
+	elif char_name == "Samejima" || char_name == "Attendant":
+		portrait.texture = shark_expressions[curr_expression]
 	else:
 		portrait.visible = false
 
